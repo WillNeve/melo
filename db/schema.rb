@@ -10,11 +10,83 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_112336) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_154514) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "genre"
+    t.text "description"
+    t.boolean "is_group"
+    t.float "rate"
+    t.string "instrument"
+    t.string "soundcloud_url"
+    t.string "spotify_url"
+    t.string "bandcamp_url"
+    t.string "instagram_url"
+    t.string "tiktok_url"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_artists_on_user_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.bigint "user_id", null: false
+    t.bigint "artist_id", null: false
+    t.string "type"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_bookings_on_artist_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "dm_rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "dm_room_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dm_room_id"], name: "index_messages_on_dm_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "comment"
+    t.float "rating"
+    t.bigint "user_id", null: false
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_reviews_on_artist_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "user_dms", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "dm_room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dm_room_id"], name: "index_user_dms_on_dm_room_id"
+    t.index ["user_id"], name: "index_user_dms_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string "location", default: ""
+    t.string "role", default: "booker"
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
+    t.string "username", default: "", null: false
+    t.string "phone_number", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -26,4 +98,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_112336) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "artists", "users"
+  add_foreign_key "bookings", "artists"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "messages", "dm_rooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "reviews", "artists"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "user_dms", "dm_rooms"
+  add_foreign_key "user_dms", "users"
 end
