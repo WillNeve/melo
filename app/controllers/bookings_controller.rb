@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
-
   def index
-    @bookings = Booking.all.where('user_id = ?', current_user.id)
+    @bookings = User.bookings
     # Scope your query to the dates being shown:
     start_date = params.fetch(:start_date, Date.today).to_date
     @bookings = Booking.where(start_date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
@@ -9,7 +8,8 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @bbq = Bbq.find(params[:bbq_id])
+    @artist = artist.find(params[:artist_id])
+    @user = user.find(params[:artists_id])
   end
 
   def show
@@ -19,10 +19,10 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @bbq = Bbq.find(params[:bbq_id])
+    @artist = artist.find(params[:artist_id])
     @user = current_user
     @booking.user = @user
-    @booking.bbq = @bbq
+    @booking.artist = @artist
     if @booking.save
       redirect_to confirmation_booking_path(@booking)
     else
