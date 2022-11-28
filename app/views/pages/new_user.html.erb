@@ -1,0 +1,8 @@
+<div class="container new_user">
+  <h1>Welcome to Melo, <%= current_user.first_name %>!</h1>
+  <p>Please choose one of the following to get started!</p>
+  <div id="options">
+    <%= link_to 'Im here to browse the talent', artists_path %>
+    <%= link_to 'Im an Artist', new_artist_guidelines_path %>
+  </div>
+</div>
