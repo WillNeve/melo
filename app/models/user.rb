@@ -17,4 +17,5 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :user_dms
   has_many :dm_rooms, through: :user_dms
+  has_one_attached :avatar
 end
