@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true
   validates :encrypted_password,
-            length: { minimum: 8 }, format: { with: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+            length: { minimum: 8 }, format: { with: /\A(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}\z/,
                                               message: "Password must contain atleast 1 letter and 1 number" }
 
   validates_presence_of :first_name, :last_name
