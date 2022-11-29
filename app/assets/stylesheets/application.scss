@@ -11,7 +11,32 @@
 @import "components/index";
 @import "pages/index";
 
+@font-face {
+  font-family: 'Futura Bold';
+  src: url('./fonts/Futura-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DIN med';
+  src: url('./fonts/DIN-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DIN light';
+  src: url('./fonts/DIN-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DIN regular';
+  src: url('./fonts/DIN-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DIN bold';
+  src: url('./fonts/DIN-Bold.ttf') format('truetype');
+}
 
 body {
-  background: #E0BFA0;
+  font-family: 'DIN med', sans-serif;
+}
+
+.melo-logo-text {
+  font-family: 'Futura Bold', sans-serif;
+  color: $black;
 }
