@@ -12,8 +12,12 @@
 
   <body>
     <%= render "shared/melo_nav" %>
-    <div style='width: 100%; height: 4rem;'></div>
+    <div style='width: 100%; height: 4rem; margin-bottom: 15px;c'></div>
+    <%# ^^ this is here to add margin to the content so it doesnt go under fixed navbar %>
     <%= render "shared/flashes" %>
     <%= yield %>
+     <div data-controller='navbar'>
+      <%= render "shared/melo_bubble_menu" %>
+    </div>
   </body>
 </html>
