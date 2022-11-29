@@ -1,8 +1,10 @@
 #bubble-menu-container {
   position: fixed;
   z-index: 4;
-  bottom: 50px;
-  right: 30px;
+  margin-bottom: 50px;
+  margin-right: 30px;
+  bottom: 0;
+  right: 0;
   width: 70px;
   height: 70px;
   background-color: $yellow;
@@ -12,8 +14,8 @@
   &.show {
     width: 250vw;
     height: 250vw;
-    bottom: 0;
-    right: 0;
+    margin-bottom: 0px;
+    margin-right: 0px;
     transform: translate(50%, 50%)
   }
 }
