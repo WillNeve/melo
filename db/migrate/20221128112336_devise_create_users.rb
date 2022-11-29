@@ -8,7 +8,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :role, default: "booker"
       t.string :first_name, null: false, default: ""
       t.string :last_name, null: false, default: ""
-      t.string :username, null: false, default: ""
       t.string :phone_number, null: false, default: ""
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
