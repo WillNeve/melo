@@ -1,0 +1,14 @@
+<div id="melo-nav">
+  <div class="bar">
+    <% if current_user && current_user.avatar.key %>
+      <img src="<%=cl_image_path current_user.avatar.key%>" alt="" class="avatar" data-action='click->navbar#showMenu'>
+    <% else %>
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/1200px-Patrick_Star.svg.png" alt="patrick star" class="avatar" data-action='click->navbar#showMenu'>
+    <% end %>
+
+    <a href="" class="nav_button">
+      <i class="fa-regular fa-paper-plane"></i>
+    </a>
+
+  </div>
+</div>
