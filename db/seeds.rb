@@ -17,7 +17,7 @@ CSV.foreach(filepath, headers: :first_row) do |row|
   user = User.new(
     first_name: row[0].gsub('“', '').gsub('”', ''),
     last_name: row[1].gsub('“', '').gsub('”', ''),
-    username: row[2].gsub('“', '').gsub('”', ''),
+    # username: row[2].gsub('“', '').gsub('”', ''),
     password: 'Qwerty123!',
     password_confirmation: 'Qwerty123!',
     email: row[5].gsub('“', '').gsub('”', ''),
@@ -64,7 +64,7 @@ puts "Creating other users"
 5.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  username = "#{first_name}-#{last_name}"
+  # username = "#{first_name}-#{last_name}"
   password = 'Qwerty123!'
   password_confirmation = 'Qwerty123!'
   email = "#{first_name}.#{last_name}@test.com"
