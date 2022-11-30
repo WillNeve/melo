@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, except: %i[new create]
-  resources :dm_rooms, only: %i[create show] do
+  resources :dm_rooms do
     resources :messages, only: :create
   end
   # add destroy to messages

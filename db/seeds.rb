@@ -125,3 +125,26 @@ end
 #   t.index ["user_id"], name: "index_messages_on_user_id"
 # end
 
+# --------------------------------THE WAGON BROTHERS----------
+puts "Bob Guitar is ready to Rock N' Roll 🔥🎸🔥 "
+bobguitar = {
+  first_name: "Bob",
+  last_name: "Guitar",
+  email: "bobguitar@gmail.com",
+  phone_number: "1234567890",
+  password: "123123",
+  password_confirmation: "123123"
+}
+User.create(bobguitar)
+
+puts "Rob Bass is ready to Rock N' Roll 🔥🎸🔥 "
+robbass = {
+  first_name: "Rob",
+  last_name: "Bass",
+  email: "robbass@gmail.com",
+  phone_number: "1234567890",
+  password: "123123",
+  password_confirmation: "123123"
+}
+User.create(robbass)
+# ---------------------------------------------------------------
