@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_162930) do
     t.string "name"
     t.string "genre"
     t.text "description"
-    t.boolean "is_group"
+    t.boolean "is_group", default: false
     t.float "rate"
     t.string "instrument"
     t.string "soundcloud_url"

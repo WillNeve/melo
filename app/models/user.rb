@@ -3,9 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true
-  validates :encrypted_password,
-            length: { minimum: 8 }, format: { with: /\A(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}\z/,
-                                              message: "Password must contain atleast 1 letter and 1 number" }
+  validates :encrypted_password, length: { minimum: 8 }
 
   validates_presence_of :first_name, :last_name
   validates :phone_number, length: { minimum: 8 }, presence: true
