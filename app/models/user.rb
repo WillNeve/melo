@@ -9,10 +9,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :artist
-  has_many :messages
   has_many :reviews
   has_many :bookings
   has_many :user_dms
   has_many :dm_rooms, through: :user_dms
+  has_many :messages
   has_one_attached :avatar
 end

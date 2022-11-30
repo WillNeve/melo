@@ -1,19 +1,19 @@
 class MessagesController < ApplicationController
-  def create
-    @dm_room = DmRoom.find(params[:dm_room_id])
-    @message = Message.new(message_params)
-    @message.dm_room = @dm_room
-    @message.user = current_user
-    if @message.save
-      redirect_to dm_room_path(@dm_room)
-    else
-      render "dm_rooms/show", status: :unprocessable_entity
-    end
+  before_action :authenticate_user!
+
+  def show
+    users = [current_user, User.find(params[:id])]
+    @targetuser = User.find(params[:id])
+    @dm_room = dm_room.direct_message_for_users(users)
+    @dm_roomall = dm_room.all
+    @messages = @dm_room.messages.order(created_at: :desc).limit(100).reverse
+    @messagelast = @dm_room.messages.last(1)
+    render "dm_rooms/show"
   end
 
   private
 
-  def message_params
-    params.require(:message).permit(:content)
+  def dm_room_user_locator
+    @dm_room_locator = DmRoom.find(params[:dm_room_id])
   end
 end

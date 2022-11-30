@@ -13,6 +13,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def chatroom
+    @dm_room.all
+  end
+
   def new_user
     @no_buttons = true
   end
