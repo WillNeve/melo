@@ -1,11 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:landing]
 
-  def message_test
-
-  end
-
-
   def landing
     return unless current_user
 
@@ -19,5 +14,6 @@ class PagesController < ApplicationController
   end
 
   def new_user
+    @no_buttons = true
   end
 end

@@ -1,8 +1,15 @@
 <div class="container new_user">
-  <h1>Welcome to Melo, <%= current_user.first_name %>!</h1>
+  <h1>Hey <%= current_user.first_name %>!</h1>
   <p>Please choose one of the following to get started!</p>
   <div id="options">
-    <%= link_to 'Im here to browse the talent', artists_path %>
-    <%= link_to 'Im an Artist', new_artist_guidelines_path %>
+    <div class="option">
+      <%= link_to 'Browse the talent', artists_path, class: 'browse' %>
+      <p>You will still be able to sign up as an artist later</p>
+    </div>
+
+    <div class="option">
+      <%= link_to 'Im an Artist', new_artist_guidelines_path, class: 'artist' %>
+      <p>Sign up as an artist</p>
+    </div>
   </div>
 </div>
