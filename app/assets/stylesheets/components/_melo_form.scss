@@ -1,5 +1,94 @@
 #melo-form {
-  input {
-    background: yellow;
+  display: grid;
+  width: 100%;
+  height: 70%;
+  justify-content: center;
+  grid-template-columns: 10vh 10vh 10vh 10vh;
+  grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
+
+  abbr[title="required"] {
+    display: none;
+  }
+  #first_name {
+    background: $red;
+    color: $pink;
+  }
+  .user_first_name {
+    label {
+      background: $red;
+      padding: 4px;
+      color: $pink;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+  }
+  #last_name {
+    background: $yellow;
+    color: $black;
+  }
+  .user_last_name {
+    label {
+      background: $yellow;
+      padding: 4px;
+      color: $black;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 3;
+      grid-row-end: 4;
+    }
+  }
+  #email {
+    background: $blue;
+    color: $pink;
+  }
+  .user_email {
+    label {
+      display: block;
+      background: $blue;
+      padding: 4px;
+      color: $pink;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 3;
+      grid-row-end: 4;
+    }
+  }
+  #phone_number {
+    background: $red;
+    color: $pink;
+  }
+  .user_phone_number {
+    label {
+      display: block;
+      background: $red;
+      padding: 4px;
+      color: $pink;
+    }
+  }
+  #password {
+    background: $yellow;
+    color: $black;
+  }
+  .user_password {
+    label {
+      display: block;
+      background: $yellow;
+      padding: 4px;
+      color: $black;
+    }
+  }
+  #password_confirmation {
+    background: $blue;
+    color: $pink;
+  }
+  .user_password_confirmation {
+    label {
+      display: block;
+      background: $blue;
+      padding: 4px;
+      color: $pink;
+    }
   }
 }
