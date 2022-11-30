@@ -1,0 +1,309 @@
+#landing-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    position: fixed;
+    top: 0px;
+    height: 20%;
+    width: 100%;
+    font-size: 4rem;
+    display: flex;
+    color: $black;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+}
+
+#squares {
+  position: fixed;
+  top: 20%;
+  display: grid;
+  width: 100%;
+  height: 70%;
+  margin: 5% 0%;
+  justify-content: center;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  // grid-template-columns: 20vw 20vw 20vw 20vw;
+  // grid-template-rows: 20vw 20vw 20vw 20vw 20vw 20vw 20vw;
+  grid-template-columns: 10vh 10vh 10vh 10vh;
+  grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
+  transition: all .5s ease;
+  div {
+    aspect-ratio: 1;
+    transition: all .5s ease;
+    &.black {
+      background: $black;
+    }
+  }
+  .blackBox {
+    z-index: 5;
+    background-color: $black;
+    color: $light-gray;
+    display: flex;
+    pointer-events: none;
+    p {
+      padding: 0px 10px;
+      height: 50%;
+      font-size: 1rem;
+      margin: 0;
+
+    }
+    align-items: center;
+    justify-content: center;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 8;
+    opacity: 0;
+    &.active {
+      opacity: 1;
+    }
+  }
+  .miniBlackBox {
+
+    z-index: 6;
+    background-color: $black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 3 !important;
+    grid-row-end: 4 !important;
+    opacity: 0;
+    pointer-events: none;
+    h2 {
+      margin: 0;
+      padding: 0;
+    }
+    &.active {
+      opacity: 1;
+    }
+  }
+  .square1 {
+    background: $red;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    transition: all .3s ease;
+  }
+  .square2 {
+    background: $blue;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .square3 {
+    background: $yellow;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .square4 {
+    background: $blue;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    transition: all .3s ease;
+  }
+  .square5 {
+    background: $red;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .square6 {
+    background: $yellow;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .square7 {
+    background: $yellow;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .square8 {
+    background: $red;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+  .square9 {
+    background: $blue;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+  .square10 {
+    background: $yellow;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+  .square11 {
+    background: $red;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+  .square12 {
+    background: $blue;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 6;
+    grid-row-end: 7;
+  }
+  .square13 {
+    background: $red;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 6;
+    grid-row-end: 7;
+  }
+  .square14 {
+    background: $yellow;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 6;
+    grid-row-end: 7;
+  }
+  .about {
+    background: $black;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 7;
+    grid-row-end: 8;
+    background: $black;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1rem;
+    z-index: 8;
+  }
+  .square16 {
+    background: $red;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 7;
+    grid-row-end: 8;
+  }
+  .square17 {
+    background: $blue;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 7;
+    grid-row-end: 8;
+  }
+  .square18 {
+    background: $yellow;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 7;
+    grid-row-end: 8;
+  }
+  .login, .signup {
+    background: $black;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.4rem;
+  }
+  .login {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    transition: all .3s ease;
+    &.about {
+      transform: translateX(-300px);
+      opacity: 0;
+    }
+  }
+  .signup {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    transition: all .3s ease;
+    &.about {
+      transform: translateX(300px);
+      opacity: 0;
+    }
+  }
+
+  &.about {
+    //------->>>remove inbetween these lines if you dont want about to move up
+    top: 0px;
+    width: 100%;
+    height: 70%;
+    margin: 5% 0%;
+    // <<<------remove inbetween these lines if you dont want about to move up
+
+
+    .square1 {
+      transform: translateY(200%);
+      &.shift {
+        transform: translate(100%, 200%);
+      }
+    }
+    .square2 {
+      transform: translateY(300%);
+    }
+    .square3 {
+      transform: translateY(300%);
+    }
+    .square4 {
+      transform: translateY(200%);
+      &.shift {
+        transform: translate(-100%, 200%);
+      }
+    }
+    .square5 {
+      transform: translateY(200%);
+    }
+    .square6 {
+      transform: translateY(300%);
+    }
+    .square7 {
+      transform: translateY(200%);
+    }
+    .square8 {
+      transform: translateY(100%);
+    }
+    .square9 {
+      transform: translateY(200%);
+    }
+    .square10 {
+      transform: translateY(100%);
+    }
+    .square11 {
+      transform: translateY(100%);
+    }
+  }
+}

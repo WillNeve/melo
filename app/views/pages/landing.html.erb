@@ -1,0 +1,33 @@
+<div class="container">
+  <div id="landing-container">
+    <h1 class='melo-logo-text'>mélo</h1>
+    <div id="squares" class='' data-controller='squares' data-squares-target='squaresCont'>
+      <div class="square1" data-squares-target='topLeft'></div>
+      <div class="square2"></div>
+      <div class="square3"></div>
+      <div class="square4" data-squares-target='topRight'></div>
+      <div class="square5"></div>
+      <div class="square6"></div>
+      <div class="square7"></div>
+      <%= link_to 'Log In', new_user_session_path, class: 'btn btn-primary', class: 'login', data: { squares_target: 'login'} %>
+      <div class="square8"></div>
+      <div class="square9"></div>
+      <div class="square10"></div>
+      <div class="square11"></div>
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary', class: 'signup', data: { squares_target: 'signup'} %>
+      <div class="square12"></div>
+      <div class="square13"></div>
+      <div class="square14"></div>
+      <div href="#" class='about' data-action='click->squares#aboutMode' data-squares-target='about'>About us</div>
+      <div class="square16"></div>
+      <div class="square17"></div>
+      <div class="square18"></div>
+      <div class="miniBlackBox" data-squares-target='miniBlackBox'>
+        <h2>About</h2>
+      </div>
+      <div class="blackBox" data-squares-target='blackBox'>
+        <p class='about-text'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus ipsum expedita officia voluptate nam quos aperiam vitae doloremque placeat tenetur perspiciatis id cumque, nihil voluptatum atque quas eligendi. Ut, consectetur.</p>
+      </div>
+    </div>
+  </div>
+</div>

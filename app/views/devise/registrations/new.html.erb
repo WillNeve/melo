@@ -1,25 +1,42 @@
-<h2>Sign up</h2>
+<div class="container">
+  <h2 class='text-center'>Be out there</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-  <%= f.error_notification %>
+  <div id='melo-form'>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+      <div class="form-inputs">
+        <%= f.input :first_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: {:id => "first_name", autocomplete: "first name" }%>
+        <%= f.input :last_name,
+                    class: 'label_last_name',
+                    required: true,
+                    autofocus: true,
+                    input_html: {:id => "last_name", autocomplete: "last name" }%>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: {:id => "email", autocomplete: "email" }%>
+        <%= f.input :phone_number,
+                    required: false,
+                    autofocus: true,
+                    input_html: {:id => "phone_number", autocomplete: "Mobile" }%>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: {:id => "password", autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: {:id => "password_confirmation", autocomplete: "new-password" } %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up" %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>

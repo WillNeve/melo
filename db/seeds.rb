@@ -124,3 +124,4 @@ end
 #   t.index ["dm_room_id"], name: "index_messages_on_dm_room_id"
 #   t.index ["user_id"], name: "index_messages_on_user_id"
 # end
+
