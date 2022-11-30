@@ -2,7 +2,7 @@ class InitiateDmController < ApplicationController
   def initiate
     @user = current_user
     @target_user = User.find(params[:id])
-    if false # there is already a room with user and target user redirect to that room
+    # if false there is already a room with user and target user redirect to that room
       # find the id of that room
       redirect_to dm_room_path(id_goes_here)
     else
