@@ -71,7 +71,7 @@ puts "Creating other users"
   location = Faker::Address.full_address
   role = 'booker'
   phone_number = Faker::PhoneNumber.cell_phone
-  user_params = { first_name:, last_name:, username:,
+  user_params = { first_name:, last_name:,
                   email:, password:, password_confirmation:, location:, role:, phone_number: }
   user = User.new(user_params)
   avatar = URI.open('https://mir-s3-cdn-cf.behance.net/project_modules/disp/371e2787529117.5dbad08246593.png')
