@@ -9,12 +9,11 @@
 require 'csv'
 require 'open-uri'
 
-avatar2 = URI.open('https://mir-s3-cdn-cf.behance.net/project_modules/disp/371e2787529117.5dbad08246593.png')
-
 puts "Creating User Artists"
 
-filepath1 = File.join(Rails.root, 'db', 'users.csv')
-CSV.foreach(filepath1, headers: :first_row) do |row|
+filepath = File.join(Rails.root, 'db', 'users_all.csv')
+
+CSV.foreach(filepath, headers: :first_row) do |row|
   user = User.create!(
     first_name: row[0].gsub('“', '').gsub('”', ''),
     last_name: row[1].gsub('“', '').gsub('”', ''),
@@ -31,6 +30,34 @@ CSV.foreach(filepath1, headers: :first_row) do |row|
   user.avatar.attach(io: avatar, filename: "avatar_#{user.id}_1.png", content_type: "image/jpg")
 
   puts "User artist: #{user.id} created"
+  puts "Creating User Artists"
+
+    artist = Artist.new(
+      name: row[8].gsub('“', '').gsub('”', ''),
+      genre: row[9].gsub('“', '').gsub('”', ''),
+      description: row[22].gsub('“', '').gsub('”', ''),
+      rate: row[18].gsub('“', '').gsub('”', ''),
+      instrument: row[17].gsub('“', '').gsub('”', ''),
+      soundcloud_url: row[11].gsub('“', '').gsub('”', ''),
+      spotify_url: row[12].gsub('“', '').gsub('”', ''),
+      bandcamp_url: row[13].gsub('“', '').gsub('”', ''),
+      instagram_url: row[14].gsub('“', '').gsub('”', ''),
+      tiktok_url: row[10].gsub('“', '').gsub('”', ''),
+      is_group: true
+    )
+
+      artist.user = user
+      puts artist.save!
+
+    # image1 = URI.open(row[19].gsub('“', '').gsub('”', ''))
+    # image2 = URI.open(row[20].gsub('“', '').gsub('”', ''))
+    # image3 = URI.open(row[21].gsub('“', '').gsub('”', ''))
+
+    # artist.photos.attach(io: image1, filename: "artist_#{artist.id}_1.png", content_type: "image/jpg")
+    # artist.photos.attach(io: image2, filename: "artist_#{artist.id}_2.png", content_type: "image/jpg")
+    # artist.photos.attach(io: image3, filename: "artist_#{artist.id}_3.png", content_type: "image/jpg")
+
+    puts "Artist: #{artist.id} created"
 end
 
 puts "Creating User Bookers"
@@ -52,41 +79,6 @@ puts "Creating User Bookers"
   user.avatar.attach(io: avatar, filename: "user_avatar.png", content_type: "image/jpg")
 
   puts "User booker: #{user.id} created"
-end
-
-puts "Creating User Artists"
-filepath2 = File.join(Rails.root, 'db', 'artists.csv')
-
-CSV.foreach(filepath2, headers: :first_row) do |row|
-
-  artist = Artist.new(
-    name: row[0].gsub('“', '').gsub('”', ''),
-    genre: row[9].gsub('“', '').gsub('”', ''),
-    description: row[14].gsub('“', '').gsub('”', ''),
-    is_group: row[8].gsub('“', '').gsub('”', ''),
-    rate: row[10].gsub('“', '').gsub('”', ''),
-    instrument: row[1].gsub('“', '').gsub('”', ''),
-    soundcloud_url: row[3].gsub('“', '').gsub('”', ''),
-    spotify_url: row[4].gsub('“', '').gsub('”', ''),
-    bandcamp_url: row[5].gsub('“', '').gsub('”', ''),
-    instagram_url: row[6].gsub('“', '').gsub('”', ''),
-    tiktok_url: row[2].gsub('“', '').gsub('”', ''),
-    # user: row[7]
-  )
-
-  user = User.find(rand(1..(User.all.length - 1)))
-  artist.user = user
-  artist.save
-
-  image1 = URI.open(row[11].gsub('“', '').gsub('”', ''))
-  image2 = URI.open(row[12].gsub('“', '').gsub('”', ''))
-  image3 = URI.open(row[13].gsub('“', '').gsub('”', ''))
-
-  artist.photos.attach(io: image1, filename: "artist_#{artist.id}_1.png", content_type: "image/jpg")
-  artist.photos.attach(io: image2, filename: "artist_#{artist.id}_2.png", content_type: "image/jpg")
-  artist.photos.attach(io: image3, filename: "artist_#{artist.id}_3.png", content_type: "image/jpg")
-
-  puts "Artist: #{artist.id} created"
 end
 
 # user_params = { first_name: "John", last_name: "Mayer", username: "JohnMayer",
@@ -124,4 +116,3 @@ end
 #   t.index ["dm_room_id"], name: "index_messages_on_dm_room_id"
 #   t.index ["user_id"], name: "index_messages_on_user_id"
 # end
-
