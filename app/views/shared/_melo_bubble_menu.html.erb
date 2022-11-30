@@ -1,6 +1,10 @@
 
 
 <div id="bubble-menu-container" data-navbar-target='bubbleMenu'>
+  <div class="links">
+    <%= link_to 'Log Out', destroy_user_session_path, data: {turbo_method: :delete}, class: 'btn btn-primary'%>
+
+  </div>
 </div>
 
 <div id='toggle' data-action='click->navbar#showMenu' data-navbar-target='toggleButton'>
