@@ -36,7 +36,8 @@
     font-family: 'DIN bold', sans-serif;
   }
 
-  .grid-container .main-img{
+  .main-img{
+    filter: grayscale(100%);
     position: absolute;
     height: 60%;
     width: 60%;
