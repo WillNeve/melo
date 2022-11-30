@@ -10,9 +10,9 @@
 
 .artist-card {
   border: 2px solid $light-gray;
-  width: 90vw;
+  width: 360px;
   position: relative;
-  aspect-ratio: 3/4;
+  height: 480px;
   z-index: 1;
 
   .grid-container{
