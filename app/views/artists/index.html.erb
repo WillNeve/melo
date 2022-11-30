@@ -1,3 +1,59 @@
 <div class="container">
-  <h1>welcome to artists index</h1>
+  <div class="card-container">
+      <% colors = ['#B9302A', '#0363B6', '#E8B503'] %>
+      <% color_step = 0; %>
+    <% @artists.each do |artist| %>
+      <% card_color = colors[color_step] %>
+      <% color_step += 1 %>
+      <% color_step = 0 if color_step > 2 %>
+      <div class ="artist-card">
+        <div class="grid-container">
+          <%# TASK 1 adding photo and change name class in scss %>
+          <img src="<%= cl_image_path artist.photos[0].key %>" alt="artist photo" class="main-img">
+          <%# end %>
+
+          <div class="grid-item grid-item-1" style="background: <%= card_color %>"></div>
+          <div class="grid-item grid-item-2">
+            <div class="rating" style="color: <%= card_color %>">★6.9</div>
+          </div>
+          <div class="grid-item grid-item-3"></div>
+          <div class="grid-item grid-item-4"></div>
+           <div class="bottom-content">
+            <div class="top">
+              <div>
+                <h2><%= artist.user.first_name %></h2>
+                <p class="tags" style="color: <%= card_color %>">#this#that#who#what#where</p>
+              </div>
+            </div>
+            <div class="bottom">
+              <div class="location">
+              <h3 style="color: <%= card_color %>">London</h3>
+              <div class='line' style="background: <%= card_color %>"></div>
+              <h4 style="color: <%= card_color %>"><%= artist.genre %></h4>
+              </div>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>

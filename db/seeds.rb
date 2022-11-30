@@ -9,16 +9,15 @@
 require 'csv'
 require 'open-uri'
 
-avatar2 = URI.open('https://mir-s3-cdn-cf.behance.net/project_modules/disp/371e2787529117.5dbad08246593.png')
-
 puts "Creating User Artists"
 
-filepath1 = File.join(Rails.root, 'db', 'users.csv')
-CSV.foreach(filepath1, headers: :first_row) do |row|
-  user = User.create!(
+filepath = File.join(Rails.root, 'db', 'users_all.csv')
+
+CSV.foreach(filepath, headers: :first_row) do |row|
+  user = User.new(
     first_name: row[0].gsub('“', '').gsub('”', ''),
     last_name: row[1].gsub('“', '').gsub('”', ''),
-    username: row[2].gsub('“', '').gsub('”', ''),
+    # username: row[2].gsub('“', '').gsub('”', ''),
     password: 'Qwerty123!',
     password_confirmation: 'Qwerty123!',
     email: row[5].gsub('“', '').gsub('”', ''),
@@ -27,66 +26,62 @@ CSV.foreach(filepath1, headers: :first_row) do |row|
     phone_number: Faker::PhoneNumber.cell_phone
   )
   avatar = URI.open(row[7].gsub('“', '').gsub('”', ''))
-
   user.avatar.attach(io: avatar, filename: "avatar_#{user.id}_1.png", content_type: "image/jpg")
+  puts "User saved? -> #{user.save!}"
+  puts "User artist: #{user.id} created succesfully"
 
-  puts "User artist: #{user.id} created"
+
+  artist = Artist.new(
+    name: row[8].gsub('“', '').gsub('”', ''),
+    genre: row[9].gsub('“', '').gsub('”', ''),
+    description: row[22].gsub('“', '').gsub('”', ''),
+    rate: row[18].gsub('“', '').gsub('”', ''),
+    instrument: row[17].gsub('“', '').gsub('”', ''),
+    soundcloud_url: row[11].gsub('“', '').gsub('”', ''),
+    spotify_url: row[12].gsub('“', '').gsub('”', ''),
+    bandcamp_url: row[13].gsub('“', '').gsub('”', ''),
+    instagram_url: row[14].gsub('“', '').gsub('”', ''),
+    tiktok_url: row[10].gsub('“', '').gsub('”', ''),
+    is_group: true
+  )
+
+  artist.user = user
+  puts "Artist profile saved? -> #{artist.save!}"
+  puts "Artist: #{artist.id} created"
+
+  image1 = URI.open(row[19].gsub('“', '').gsub('”', ''))
+  image2 = URI.open(row[20].gsub('“', '').gsub('”', ''))
+  image3 = URI.open(row[21].gsub('“', '').gsub('”', ''))
+
+  artist.photos.attach(io: image1, filename: "artist_#{artist.id}_1.png", content_type: "image/jpg")
+  artist.photos.attach(io: image2, filename: "artist_#{artist.id}_2.png", content_type: "image/jpg")
+  artist.photos.attach(io: image3, filename: "artist_#{artist.id}_3.png", content_type: "image/jpg")
+  puts '--------------------------------------'
+  puts '--------------------------------------'
 end
 
-puts "Creating User Bookers"
+puts "Creating other users"
 5.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  username = "#{first_name}-#{last_name}"
+  # username = "#{first_name}-#{last_name}"
   password = 'Qwerty123!'
   password_confirmation = 'Qwerty123!'
   email = "#{first_name}.#{last_name}@test.com"
   location = Faker::Address.full_address
   role = 'booker'
   phone_number = Faker::PhoneNumber.cell_phone
-  user_params = { first_name:, last_name:, username:,
-      email:, password:, location:, role:, phone_number: }
-  user = User.create(user_params)
-
+  user_params = { first_name:, last_name:,
+                  email:, password:, password_confirmation:, location:, role:, phone_number: }
+  user = User.new(user_params)
   avatar = URI.open('https://mir-s3-cdn-cf.behance.net/project_modules/disp/371e2787529117.5dbad08246593.png')
   user.avatar.attach(io: avatar, filename: "user_avatar.png", content_type: "image/jpg")
 
-  puts "User booker: #{user.id} created"
-end
+  puts "User (other) saved? -> #{user.save!}"
 
-puts "Creating User Artists"
-filepath2 = File.join(Rails.root, 'db', 'artists.csv')
-
-CSV.foreach(filepath2, headers: :first_row) do |row|
-
-  artist = Artist.new(
-    name: row[0].gsub('“', '').gsub('”', ''),
-    genre: row[9].gsub('“', '').gsub('”', ''),
-    description: row[14].gsub('“', '').gsub('”', ''),
-    is_group: row[8].gsub('“', '').gsub('”', ''),
-    rate: row[10].gsub('“', '').gsub('”', ''),
-    instrument: row[1].gsub('“', '').gsub('”', ''),
-    soundcloud_url: row[3].gsub('“', '').gsub('”', ''),
-    spotify_url: row[4].gsub('“', '').gsub('”', ''),
-    bandcamp_url: row[5].gsub('“', '').gsub('”', ''),
-    instagram_url: row[6].gsub('“', '').gsub('”', ''),
-    tiktok_url: row[2].gsub('“', '').gsub('”', ''),
-    # user: row[7]
-  )
-
-  user = User.find(rand(1..(User.all.length - 1)))
-  artist.user = user
-  artist.save
-
-  image1 = URI.open(row[11].gsub('“', '').gsub('”', ''))
-  image2 = URI.open(row[12].gsub('“', '').gsub('”', ''))
-  image3 = URI.open(row[13].gsub('“', '').gsub('”', ''))
-
-  artist.photos.attach(io: image1, filename: "artist_#{artist.id}_1.png", content_type: "image/jpg")
-  artist.photos.attach(io: image2, filename: "artist_#{artist.id}_2.png", content_type: "image/jpg")
-  artist.photos.attach(io: image3, filename: "artist_#{artist.id}_3.png", content_type: "image/jpg")
-
-  puts "Artist: #{artist.id} created"
+  puts "User (other): #{user.id} created succesfully"
+  puts '--------------------------------------'
+  puts '--------------------------------------'
 end
 
 # user_params = { first_name: "John", last_name: "Mayer", username: "JohnMayer",
@@ -104,26 +99,21 @@ puts "Creating Reviews" # let's make 5 different USERS
   comment = Faker::Lorem.paragraph
   rating = rand(1..5)
   review_params = { comment:, rating:, user: }
-  review = Review.create(review_params)
+  review = Review.new(review_params)
+  review.artist = artist
+  puts "Review saved? -> #{review.save!}"
   puts "Review: #{review.id} created"
+  puts '--------------------------------------'
+  puts '--------------------------------------'
 end
 
-puts "Creating messages" # let's make 5 different USERS
-80.times do # make some messages
-  user = User.find(rand(1..(User.all.length - 1)))
-  content = Faker::Lorem.sentences
-  dm_room_id = rand(1..80)
-end
-
-# create_table "messages", force: :cascade do |t|
-#   t.text "content"
-#   t.bigint "dm_room_id", null: false
-#   t.bigint "user_id", null: false
-#   t.datetime "created_at", null: false
-#   t.datetime "updated_at", null: false
-#   t.index ["dm_room_id"], name: "index_messages_on_dm_room_id"
-#   t.index ["user_id"], name: "index_messages_on_user_id"
+# puts "Creating messages" # let's make 5 different USERS
+# 80.times do # make some messages
+#   user = User.find(rand(1..(User.all.length - 1)))
+#   content = Faker::Lorem.sentences
+#   dm_room_id = rand(1..80)
 # end
+
 
 # --------------------------------THE WAGON BROTHERS----------
 puts "Bob Guitar is ready to Rock N' Roll 🔥🎸🔥 "

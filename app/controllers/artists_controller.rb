@@ -1,5 +1,6 @@
 class ArtistsController < ApplicationController
   def index
+    @artists = Artist.all
   end
 
   def new
@@ -7,6 +8,7 @@ class ArtistsController < ApplicationController
   end
 
   def new_artist_guidelines
+    @no_buttons = true
   end
 
   def create
