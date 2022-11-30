@@ -36,9 +36,10 @@ body {
   font-family: 'DIN med', sans-serif;
 }
 
-.melo-logo-text {
+#melo-logo-text {
   font-family: 'Futura Bold', sans-serif;
-  color: $black;
+  color: $gray;
+  margin: 0;
 }
 .btn {
   font-size: 1.2rem;
