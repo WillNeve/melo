@@ -46,6 +46,7 @@
     background-color: $black;
     color: $light-gray;
     display: flex;
+    pointer-events: none;
     p {
       padding: 0px 10px;
       height: 50%;
@@ -65,6 +66,7 @@
     }
   }
   .miniBlackBox {
+
     z-index: 6;
     background-color: $black;
     color: white;
@@ -76,6 +78,7 @@
     grid-row-start: 3 !important;
     grid-row-end: 4 !important;
     opacity: 0;
+    pointer-events: none;
     h2 {
       margin: 0;
       padding: 0;
