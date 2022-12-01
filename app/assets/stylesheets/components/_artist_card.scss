@@ -68,7 +68,7 @@
         font-size: 4rem;
         color: $gray;
         font-family: 'DIN bold', sans-serif;
-        margin-bottom: 0;
+        margin-bottom: 0 !important;
         z-index: 5;
       }
       .tags {
