@@ -2,7 +2,35 @@
 
 <div id="menu-container" data-navbar-target='bubbleMenu'>
   <div class="links">
+
+    <div>
+    <%= link_to 'Homepage', destroy_user_session_path, class: 'btn btn-primary' %>
+    </div>
+
+    <div>
+    <%= link_to 'Messages', destroy_user_session_path, class: 'btn btn-primary' %>
+    </div>
+
+    <div>
+    <%= link_to 'Profile', destroy_user_session_path, class: 'btn btn-primary' %>
+    </div>
+
+    <div>
+    <%= link_to 'Dashboard', destroy_user_session_path, class: 'btn btn-primary' %>
+    </div>
+
+    <div>
+    <%= link_to 'Bookings', destroy_user_session_path, class: 'btn btn-primary' %>
+    </div>
+
+    <div>
+    <%= link_to 'Saved Artists', destroy_user_session_path, class: 'btn btn-primary' %>
+    </div>
+
+    <div>
     <%= link_to 'Log Out', destroy_user_session_path, data: {turbo_method: :delete}, class: 'btn btn-primary'%>
+    </div>
+
   </div>
 </div>
 
