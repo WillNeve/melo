@@ -110,8 +110,6 @@ end
 #   content = Faker::Lorem.sentences
 #   dm_room_id = rand(1..80)
 # end
-
-
 # --------------------------------THE WAGON BROTHERS----------
 puts "Bob Guitar is ready to Rock N' Roll 🔥🎸🔥 "
 bobguitar = {
