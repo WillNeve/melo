@@ -1,0 +1,7 @@
+<div class="container">
+  <%= simple_form_for [@artist, @booking] do |f| %>
+  <%= f.input :start_date, as: :datetime, html5: true %>
+  <%= f.input :end_date, as: :datetime, html5: true %>
+  <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>
