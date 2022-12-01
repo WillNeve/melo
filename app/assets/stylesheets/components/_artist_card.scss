@@ -56,12 +56,14 @@
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
+      -webkit-justify-content: flex-end;
       border: 2px dashed greenyellow;
       // border: 1px solid yellow;
       div {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        -webkit-align-items: flex-end;
       }
       h2 {
         position: relative;
