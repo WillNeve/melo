@@ -6,8 +6,8 @@
       <% card_color = colors[color_step] %>
       <% color_step += 1 %>
       <% color_step = 0 if color_step > 2 %>
-      <a id="artist-card" href='/artists/<%=artist.id%>'>
-        <div id="tiles">
+      <a class="artist-card" href='/artists/<%=artist.id%>'>
+        <div class="tiles">
           <div class="color-tile" style="background: <%= card_color %>"></div>
         </div>
           <img src="<%= cl_image_path artist.photos[0].key %>" alt="artist photo" class="main-img">
@@ -20,15 +20,12 @@
               <p class="tags" style="color: <%= card_color %>">#this#that#who#what#where</p>
             </div>
           </div>
-
-          <div class="bottom">
-            <div class="location">
+          <div class="location">
             <h3 style="color: <%= card_color %>">London</h3>
             <div class='line' style="background: <%= card_color %>"></div>
             <h4 style="color: <%= card_color %>"><%= artist.genre %></h4>
-            </div>
-            <a><i class="fa-regular fa-heart"></i></a>
           </div>
+          <i class="fa-regular fa-heart"></i>
       </a>
     <% end %>
   </div>

@@ -8,13 +8,13 @@
 }
 
 
-#artist-card {
+.artist-card {
   border: 2px solid $light-gray;
   width: 360px;
   position: relative;
   height: 480px;
 
-  #tiles{
+  .tiles{
     z-index: 1;
     display: grid;
     grid-template-columns: 50% 50%;
@@ -30,8 +30,8 @@
 
   .rating {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 5px;
+    top: 5px;
     font-size: 24px;
     font-family: 'DIN bold', sans-serif;
   }
@@ -83,51 +83,39 @@
 
     }
 
-    .bottom {
-      z-index: 10;
-      width: 100%;
-      padding: 0px 5px;
-      display: flex;
-      position: absolute;
-      bottom: 5px;
-      left: 50%;
-      transform: translateX(-50%);
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 6 !important;
-      .location {
-        display: flex;
-        flex-direction: row;
-        height: fit-content;
-        // border: 1px solid red;
-        justify-content: center;
-        align-items: center;
-        column-gap: 6px;
-        h3 {
-          display: block;
-          font-size: 1.9rem;
-          font-family: 'DIN bold', sans-serif;
-          margin: 0;
-          margin-bottom: 0 !important;
-        }
-        .line {
-          display: block;
-          width: 4px;
-          height: 26px;
-        }
-        h4 {
-          display: block;
-          font-size: 1.3rem;
-          font-family: 'DIN bold', sans-serif;
-          margin: 0;
-          margin-bottom: 0 !important;
-        }
-      }
-      i {
-        font-size: 148.75%;
-        color: $gray;
-      }
+  i {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: 148.75%;
+    color: $gray;
+  }
+  .location {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    column-gap: 6px;
+    h3 {
+      display: block;
+      font-size: 1.9rem;
+      font-family: 'DIN bold', sans-serif;
+      margin: 0;
+      margin-bottom: 0 !important;
     }
-
+    .line {
+      display: block;
+      width: 4px;
+      height: 26px;
+    }
+    h4 {
+      display: block;
+      font-size: 1.3rem;
+      font-family: 'DIN bold', sans-serif;
+      margin: 0;
+      margin-bottom: 0 !important;
+    }
+  }
 }
