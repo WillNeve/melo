@@ -48,17 +48,12 @@
     transform: translate(-50%, -50%);
   }
 
-  .name-tags {
+  #artist-name-tags {
     position: absolute;
       z-index: 5;
       right: 10px;
-      bottom: 40px;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      -webkit-justify-content: flex-end;
+      top: 75%;
       border: 2px dashed greenyellow;
-      // border: 1px solid yellow;
       div {
         display: flex;
         flex-direction: column;
@@ -93,7 +88,7 @@
     font-size: 148.75%;
     color: $gray;
   }
-  .location {
+  #artist-location-genre {
     display: flex;
     flex-direction: row;
     align-items: center;

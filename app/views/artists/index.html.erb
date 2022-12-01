@@ -14,13 +14,13 @@
 
           <div class="rating" style="color: <%= card_color %>">★6.9</div>
 
-          <div class="name-tags">
+          <div id="artist-name-tags">
             <div>
               <h2><%= artist.user.first_name %></h2>
               <p class="tags" style="color: <%= card_color %>">#this#that#who#what#where</p>
             </div>
           </div>
-          <div class="location">
+          <div id="artist-location-genre">
             <h3 style="color: <%= card_color %>">London</h3>
             <div class='line' style="background: <%= card_color %>"></div>
             <h4 style="color: <%= card_color %>"><%= artist.genre %></h4>
