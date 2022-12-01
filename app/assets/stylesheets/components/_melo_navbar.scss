@@ -24,15 +24,22 @@
     display: flex;
     width: 100%;
     padding: 0px 15px;
+    margin-top:auto;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    h1 {
-      font-size: 2.8rem;
-    }
-    a {
+
+
+
+      #melo-logo-text{
+        font-size: 3rem;
+        text-decoration: none;
+      }
+
+      .nav_button{
       color: $gray;
-      font-size: 1.2rem;
-    }
+      font-size: 2rem;
+      margin-bottom: -1rem;
+      }
   }
 }
