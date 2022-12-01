@@ -6,7 +6,7 @@
       <% card_color = colors[color_step] %>
       <% color_step += 1 %>
       <% color_step = 0 if color_step > 2 %>
-      <div class ="artist-card">
+      <div id="artist-card">
         <div class="grid-container">
           <%# TASK 1 adding photo and change name class in scss %>
           <img src="<%= cl_image_path artist.photos[0].key %>" alt="artist photo" class="main-img">
