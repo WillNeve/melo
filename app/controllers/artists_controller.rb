@@ -21,6 +21,11 @@ class ArtistsController < ApplicationController
     end
   end
 
+  def show
+    @artist = Artist.find(params[:id])
+    @booking = Booking.new
+  end
+
   def new_artist_confirmation
     @artist = current_user.artist
   end
