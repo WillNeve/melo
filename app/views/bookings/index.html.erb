@@ -3,7 +3,7 @@
   <% @bookings.each do |booking| %>
       <h3>Booking <em>(ref: #<%= booking.id %>)</em></h3>
   <div class="confirmation_card">
-    <img src='<%= cl_image_path booking.bbq.photos[0].key%>' />
+    <img src='<%= cl_image_path booking.artist.photos%>' />
     <div class="confirmation_card-infos">
         <% title_formatted = booking.artist.name.capitalize %>
         <% start_time = DateTime.parse(booking.start_date.to_s) %>
