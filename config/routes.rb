@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/message_test', to: 'pages#message_test'
   get '/start_dm/:id', to: 'initiate_dm#initiate'
   get '/newuser', to: 'pages#new_user', as: :new_signup
+  get 'artists/:id/bookings/confirmed', to: 'bookings#confirmation', as: :confirmation_booking
   get 'artists/new_guidelines', to: 'artists#new_artist_guidelines', as: :new_artist_guidelines
   get 'artists/create_confirmation', to: 'artists#new_artist_confirmation', as: :new_artist_confirmation
 
