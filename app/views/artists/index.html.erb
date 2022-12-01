@@ -42,19 +42,11 @@
 
         <div class='like_button'>
           <% if liked %>
-            <%= button_to '<i class="fa-solid fa-heart"></i>'.html_safe, user_like_path(UserLike.find(like_id)),
-            class: 'button liked',
-            method: :delete,
-            data: {action: 'click->artist-like#like',
-                    artist_like_target: 'button',
-                    artist_like_remove_value: "/user_likes/#{like_id}"} %>
+            <i class="fa-solid fa-heart liked" data-action='click->artist-like#like'
+                                         data-artist-like-target='button'></i>
           <% else %>
-            <%= button_to '<i class="fa-regular fa-heart"></i>'.html_safe, artist_user_likes_path(artist),
-            class: 'button',
-            method: :post,
-            data: {action: 'click->artist-like#like',
-                    artist_like_target: 'button'},
-                    artist_like_add_value: "/artists/#{artist.id}/user_likes" %>
+            <i class="fa-solid fa-heart" data-action='click->artist-like#like'
+                                         data-artist-like-target='button'></i>
           <% end %>
         </div>
 

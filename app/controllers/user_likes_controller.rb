@@ -9,13 +9,18 @@ class UserLikesController < ApplicationController
     like.user = current_user
     like.artist = Artist.find(params[:artist_id])
     like.save
-    redirect_to artists_path
-    format.html { redirect_to artists_path }
+    respond_to do |format|  ## Add this
+      format.json { render json: like, status: :ok }
+      format.html { redirect_to artists_path }
+    end
   end
 
   def destroy
     like = UserLike.find(params[:id])
     like.destroy
-    format.html { redirect_to artists_path }
+    respond_to do |format|  ## Add this
+      format.json { render json: {}, status: :ok }
+      format.html { redirect_to artists_path }
+    end
   end
 end

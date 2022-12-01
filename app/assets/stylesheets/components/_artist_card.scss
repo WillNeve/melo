@@ -19,12 +19,14 @@
     text-decoration: none;
     bottom: 5px;
     right: 10px;
-    button {
-      font-size: 200%;
+    i {
+      font-size: 190%;
       border: none;
       background: none;
+      transition: all .3s ease;
       &.liked {
         color: $red;
+        font-size: 210%
       }
     }
   }
