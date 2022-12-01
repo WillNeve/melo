@@ -54,7 +54,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    border: 2px solid red;
+    // border: 2px solid red;
     width: fit-content;
     height: fit-content;
     top: 71%;
@@ -85,9 +85,10 @@
         height: fit-content;
         align-items: center;
         position: absolute;
+        z-index: 5;
         bottom: 5px;
         left: 10px;
-        border: 2px solid yellow;
+        // border: 2px solid yellow;
         column-gap: 6px;
         h3 {
           font-size: 250%;
