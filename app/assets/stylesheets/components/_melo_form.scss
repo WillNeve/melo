@@ -1,10 +1,75 @@
+.form-container {
+  h1 {
+    position: fixed;
+    top: 0px;
+    height: 20%;
+    width: 100%;
+    font-size: 5.5rem;
+    display: flex;
+    color: $black;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+}
+.background-lines {
+
+  div {
+    height: 150%;
+    border-left: 1px solid $black;
+    position: absolute;
+    transform-origin: bottom;
+    left: 50%;
+    bottom: 0%;
+    opacity: 0.2;
+  }
+  .vl-center {
+    transform: translateX(-50%);
+  }
+  .vl-r1 {
+    transform: rotate(2.7deg);
+  }
+  .vl-r2 {
+    transform: rotate(5.3deg);
+  }
+  .vl-r3 {
+    transform: rotate(7.9deg);
+  }
+  .vl-r4 {
+    transform: rotate(9.9deg);
+  }
+  .vl-r5 {
+    transform: rotate(12.8deg);
+  }
+  .vl-r6 {
+    transform: rotate(15.8deg);
+  }
+  .vl-l1 {
+    transform: rotate(-2.7deg);
+  }
+  .vl-l2 {
+    transform: rotate(-5.3deg);
+  }
+  .vl-l3 {
+    transform: rotate(-7.9deg);
+  }
+  .vl-l4 {
+    transform: rotate(-9.9deg);
+  }
+  .vl-l5 {
+    transform: rotate(-12.8deg);
+  }
+  .vl-l6 {
+    transform: rotate(-15.8deg);
+  }
+}
 #melo-form {
-  display: grid;
+  // display: grid;
   width: 100%;
   height: 70%;
   justify-content: center;
-  grid-template-columns: 10vh 10vh 10vh 10vh;
-  grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
+  // grid-template-columns: 10vh 10vh 10vh 10vh;
+  // grid-template-rows: 10vh 10vh 10vh 10vh 10vh 10vh 10vh;
 
   abbr[title="required"] {
     display: none;
@@ -18,10 +83,10 @@
       background: $red;
       padding: 4px;
       color: $pink;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      grid-row-start: 1;
-      grid-row-end: 2;
+      // grid-column-start: 1;
+      // grid-column-end: 2;
+      // grid-row-start: 1;
+      // grid-row-end: 2;
     }
   }
   #last_name {
@@ -33,10 +98,10 @@
       background: $yellow;
       padding: 4px;
       color: $black;
-      grid-column-start: 1;
-      grid-column-end: 3;
-      grid-row-start: 3;
-      grid-row-end: 4;
+    //   grid-column-start: 1;
+    //   grid-column-end: 3;
+    //   grid-row-start: 3;
+    //   grid-row-end: 4;
     }
   }
   #email {
@@ -49,10 +114,10 @@
       background: $blue;
       padding: 4px;
       color: $pink;
-      grid-column-start: 1;
-      grid-column-end: 3;
-      grid-row-start: 3;
-      grid-row-end: 4;
+      // grid-column-start: 1;
+      // grid-column-end: 3;
+      // grid-row-start: 3;
+      // grid-row-end: 4;
     }
   }
   #phone_number {

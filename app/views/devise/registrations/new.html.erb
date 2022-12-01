@@ -1,5 +1,24 @@
 <div class="container">
-  <h2 class='text-center'>Be out there</h2>
+  <div class= background-lines>
+  <div class='vl-center'></div>
+  <div class='vl-r1'></div>
+  <div class='vl-r2'></div>
+  <div class='vl-r3'></div>
+  <div class='vl-r4'></div>
+  <div class='vl-r5'></div>
+  <div class='vl-r6'></div>
+  <div class='vl-l1'></div>
+  <div class='vl-l2'></div>
+  <div class='vl-l3'></div>
+  <div class='vl-l4'></div>
+  <div class='vl-l5'></div>
+  <div class='vl-l6'></div>
+  </div>
+
+    <div class="form-headers">
+      <h1 id="melo-logo-text">mélo</h1>
+      <h2 id='melo-logo text'>Be out there</h2>
+    </div>
 
   <div id='melo-form'>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -33,10 +52,10 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
+        <%= f.button :submit, "Sign up", class: "btn btn-primary"%>
       </div>
     <% end %>
   </div>
 
-  <%= render "devise/shared/links" %>
+  <%# <%= render "devise/shared/links" %>
 </div>
