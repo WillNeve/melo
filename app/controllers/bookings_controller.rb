@@ -8,8 +8,8 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @artist = artist.find(params[:artist_id])
-    @user = user.find(params[:artists_id])
+    @artist = Artist.find(params[:artist_id])
+    @user = current_user
   end
 
   def show
@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @artist = artist.find(params[:artist_id])
+    @artist = Artist.find(params[:artist_id])
     @user = current_user
     @booking.user = @user
     @booking.artist = @artist
