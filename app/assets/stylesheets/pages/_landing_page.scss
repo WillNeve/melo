@@ -1,3 +1,55 @@
+.background-lines {
+
+  div {
+    height: 150%;
+    border-left: 1px solid $black;
+    position: absolute;
+    transform-origin: bottom;
+    left: 50%;
+    bottom: 0%;
+    opacity: 0.6;
+  }
+  .vl-center {
+    transform: translateX(-50%);
+  }
+  .vl-r1 {
+    transform: rotate(2.7deg);
+  }
+  .vl-r2 {
+    transform: rotate(5.3deg);
+  }
+  .vl-r3 {
+    transform: rotate(7.9deg);
+  }
+  .vl-r4 {
+    transform: rotate(9.9deg);
+  }
+  .vl-r5 {
+    transform: rotate(12.8deg);
+  }
+  .vl-r6 {
+    transform: rotate(15.8deg);
+  }
+  .vl-l1 {
+    transform: rotate(-2.7deg);
+  }
+  .vl-l2 {
+    transform: rotate(-5.3deg);
+  }
+  .vl-l3 {
+    transform: rotate(-7.9deg);
+  }
+  .vl-l4 {
+    transform: rotate(-9.9deg);
+  }
+  .vl-l5 {
+    transform: rotate(-12.8deg);
+  }
+  .vl-l6 {
+    transform: rotate(-15.8deg);
+  }
+}
+
 #landing-container {
   height: 100vh;
   width: 100%;
@@ -10,7 +62,7 @@
     top: 0px;
     height: 20%;
     width: 100%;
-    font-size: 4rem;
+    font-size: 5.5rem;
     display: flex;
     color: $black;
     align-items: center;
@@ -21,6 +73,7 @@
 
 #squares {
   position: fixed;
+  z-index: 3;
   top: 20%;
   display: grid;
   width: 100%;
