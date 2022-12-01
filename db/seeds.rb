@@ -84,13 +84,10 @@ puts "Creating other users"
   puts '--------------------------------------'
 end
 
-# user_params = { first_name: "John", last_name: "Mayer", username: "JohnMayer",
-#   email: "john.mayer@gmail.com", password: '123123', password_confirmation: '123123', location: London, role: booker, phone_number: 07889974645 }
-# user = User.new(user_params)
-# avatar = URI.open('https://villagepipol.com/wp-content/uploads/2021/06/John-Mayer-FI.jpg')
-# user.avatar.attach(io: avatar, filename: "john.jpg", content_type: "image/jpg")
-# user.save
-# puts "John Mayer created 🎸"
+user_params = { first_name: "test", last_name: "test",
+                email: "test@test.com", password: '123123', password_confirmation: '123123', location: 'london', role: 'booker', phone_number: '123123123123' }
+user = User.new(user_params)
+user.save
 
 puts "Creating Reviews" # let's make 5 different USERS
 50.times do # make 50 reviews
@@ -113,8 +110,6 @@ end
 #   content = Faker::Lorem.sentences
 #   dm_room_id = rand(1..80)
 # end
-
-
 # --------------------------------THE WAGON BROTHERS----------
 puts "Bob Guitar is ready to Rock N' Roll 🔥🎸🔥 "
 bobguitar = {
