@@ -11,14 +11,14 @@ $factory-yellow: #f3e033;
 * {
 	box-sizing: border-box;
 }
-body {
-	padding: 5%;
-	padding-top: 30vh;
-	text-align: center;
-	background: lighten($cool-gray, 0);
-	font-family: 'San Francisco Text', sans-serif;
+// body {
+// 	padding: 5%;
+// 	padding-top: 30vh;
+// 	text-align: center;
+// 	background: lighten($cool-gray, 0);
+// 	font-family: 'San Francisco Text', sans-serif;
 
-}
+// }
 .picker-window {
 	position: absolute;
 	border-top: 1px solid darken($cool-gray, 10);
