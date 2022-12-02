@@ -81,6 +81,10 @@
     justify-content: center;
     margin: 0;
   }
+  p{
+    text-align: center;
+    color: $white;
+  }
 }
 
 #squares {
@@ -145,8 +149,9 @@
     opacity: 0;
     pointer-events: none;
     h2 {
-      margin: 0;
+      margin-bottom: 5rem;
       padding: 0;
+      color: $white;
     }
     &.active {
       opacity: 1;
