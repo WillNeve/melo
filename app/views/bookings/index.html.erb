@@ -2,7 +2,6 @@
 <h1>Your bookings:</h1>
   <% @bookings.each do |booking| %>
       <h3>Booking <em>(ref: #<%= booking.id %>)</em></h3>
-  <div class="confirmation_card">
     <img src='<%= cl_image_path booking.artist.photos%>' />
     <div class="confirmation_card-infos">
         <% title_formatted = booking.artist.name.capitalize %>
