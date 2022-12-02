@@ -23,7 +23,18 @@
 
   <div class="second_row_info">
     <div class="name-row d-flex justify-content-between">
-      <h3 class="rating">Rating</h3>
+
+        <% if @artist.reviews.empty? %>
+            <% artist_ratings = "New" %>
+        <% else %>
+            <% artist_ratings = 0 %>
+            <% @artist.reviews.each do |review| %>
+              <% artist_ratings += review.rating  %>
+            <% end %>
+            <% artist_ratings = (artist_ratings.to_f / @artist.reviews.length).round(1)%>
+        <% end %>
+
+      <h3 class="rating"><span >★ <%= artist_ratings%>  </span></h3>
       <h2 class="artist_name"><strong><%= @artist.name %></strong></h2>
     </div>
   </div>
