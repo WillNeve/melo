@@ -14,8 +14,16 @@
                                 data-artist-like-remove-value = "/user_likes/<%=like_id%>"
                                 data-artist-like-add-value = "/artists/<%=artist.id%>/user_likes">
         <a class="artist-card" href='/artists/<%=artist.id%>'>
-
-          <div class="rating" style="color: <%= card_color %>">★6.9</div>
+          <% if artist.reviews.empty? %>
+            <% artist_ratings = "New" %>
+        <% else %>
+            <% artist_ratings = 0 %>
+            <% artist.reviews.each do |review| %>
+              <% artist_ratings += review.rating  %>
+            <% end %>
+            <% artist_ratings = (artist_ratings.to_f / artist.reviews.length).round(1)%>
+        <% end %>
+          <div class="rating" style="color: <%= card_color %>">★<%=artist_ratings%></div>
 
           <div class="tiles">
             <div class="color-tile" style="background: <%= card_color %>"></div>
