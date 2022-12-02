@@ -12,9 +12,9 @@
     <% @booking.artist = Artist.find(params[:artist_id]) %>
     <h2>Ready to book <%= @booking.artist.name %> ?</h2>
   </div>
-    <%= simple_form_for [@artist, @booking], data: { controller: 'flatpickr' } do |f| %>
-      <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
-      <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+    <%= simple_form_for [@artist, @booking] do |f| %>
+      <%= f.input :start_date, as: :datetime, html5: true %>
+      <%= f.input :end_date, as: :datetime, html5: true %>
       <%= f.submit value: "Send request", class: 'btn btn-primary' %>
       <% end %>
 </div>
