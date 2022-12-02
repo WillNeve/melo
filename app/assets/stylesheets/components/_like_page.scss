@@ -1,0 +1,34 @@
+.like-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  .like-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    .name {
+      font-size: 3rem;
+      color: $gray;
+      background: none;
+      text-decoration: none;
+      outline: none;
+      border: none;
+      font-family: 'DIN bold', sans-serif;
+    }
+    .remove {
+      background: none;
+      color: rgba($color: $red, $alpha: 0.7);
+      padding: 0px;
+      margin: 0px;
+      outline: none;
+      border: none;
+      margin-top: 0px !important;
+      transition: all .3s ease;
+      &:hover {
+        color: rgba($color: $red, $alpha: 1.0);
+      }
+    }
+  }
+}
