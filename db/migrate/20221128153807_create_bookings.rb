@@ -5,7 +5,7 @@ class CreateBookings < ActiveRecord::Migration[7.0]
       t.datetime :end_date
       t.references :user, null: false, foreign_key: true
       t.references :artist, null: false, foreign_key: true
-      t.string :type
+      t.string :event_type
       t.string :location
 
       t.timestamps

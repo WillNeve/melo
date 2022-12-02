@@ -1,7 +1,6 @@
 require 'date'
 
 class ReviewsController < ApplicationController
-
   def index
     @artist = Artist.find(params[:artist_id])
     @reviews = @artist.reviews
@@ -14,7 +13,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @artist = artist.find(params[:artist_id])
+    @artist = Artist.find(params[:artist_id])
     @review.artist = @artist
     @review.user = current_user
     if @review.save

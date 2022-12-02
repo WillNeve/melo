@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_161221) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_02_154147) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_161221) do
     t.datetime "end_date"
     t.bigint "user_id", null: false
     t.bigint "artist_id", null: false
-    t.string "type"
+    t.string "event_type"
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,8 +74,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_161221) do
   end
 
   create_table "dm_rooms", force: :cascade do |t|
+    t.bigint "dm_room_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["dm_room_id"], name: "index_dm_rooms_on_dm_room_id"
+    t.index ["user_id"], name: "index_dm_rooms_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -122,7 +126,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_161221) do
     t.string "role", default: "booker"
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
-    t.string "username", default: "", null: false
     t.string "phone_number", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -140,6 +143,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_161221) do
   add_foreign_key "artists", "users"
   add_foreign_key "bookings", "artists"
   add_foreign_key "bookings", "users"
+  add_foreign_key "dm_rooms", "dm_rooms"
+  add_foreign_key "dm_rooms", "users"
   add_foreign_key "messages", "dm_rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "reviews", "artists"

@@ -1,0 +1,21 @@
+.booking-card {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 100%;
+  .infos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    img {
+      height: 200px;
+      width: 100px;
+      object-fit: cover;
+    };
+  }
+  .meta {
+    display: flex;
+    flex-direction: column;
+  }
+}
