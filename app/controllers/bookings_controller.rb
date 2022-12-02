@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = User.bookings
+    @bookings = current_user.bookings
     # Scope your query to the dates being shown:
     start_date = params.fetch(:start_date, Date.today).to_date
     @bookings = Booking.where(start_date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
 
   def show
     @user = current_user
-    @booking = Booking.new(params[:booking_id])
+    @booking = Booking.find(params[:booking_id])
   end
 
   def create

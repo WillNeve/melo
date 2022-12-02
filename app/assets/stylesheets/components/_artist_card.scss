@@ -7,12 +7,35 @@
   width: 100%;
 }
 
+.outer-artist {
+  display: flex;
+  position: relative;
+  height: 120vw;
+  width: 90vw;
+
+  .like_button {
+    position: absolute;
+    color: $gray;
+    text-decoration: none;
+    bottom: 5px;
+    right: 10px;
+    i {
+      font-size: 190%;
+      border: none;
+      background: none;
+      transition: all .3s ease;
+      &.liked {
+        color: $red;
+        font-size: 210%
+      }
+    }
+  }
 
 .artist-card {
   border: 4px solid $gray;
+  position: relative;
   width: 90vw;
   height: 120vw;
-  position: relative;
   z-index: 0;
 
   .tiles{
@@ -110,12 +133,5 @@
           margin-top: 10px !important;
         }
       }
-    i {
-      position: absolute;
-      font-size: 200%;
-      color: $gray;
-      text-decoration: none;
-      bottom: 5px;
-      right: 10px;
-    }
   }
+}

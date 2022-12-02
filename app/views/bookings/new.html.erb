@@ -1,7 +1,20 @@
-<div class="container">
+<%# <%# <div class="container">
   <%= simple_form_for [@artist, @booking] do |f| %>
-  <%= f.input :start_date, as: :datetime, html5: true %>
-  <%= f.input :end_date, as: :datetime, html5: true %>
-  <%= f.submit value: "Let's go!", class: 'btn btn-primary' %>
-  <% end %>
+  <%# <%= f.input :start_date, as: :datetime, html5: true %>
+  <%# <%= f.input :end_date, as: :datetime, html5: true
+  <%# <%= f.submit value: "Let's go!", class: 'btn btn-primary'
+  <%# <% end
+<%# </div> %>
+
+
+<div class="container">
+  <div class="melo-slogan">
+    <% @booking.artist = Artist.find(params[:artist_id]) %>
+    <h2>Ready to book <%= @booking.artist.name %> ?</h2>
+  </div>
+    <%= simple_form_for [@artist, @booking] do |f| %>
+      <%= f.input :start_date, as: :datetime, html5: true %>
+      <%= f.input :end_date, as: :datetime, html5: true %>
+      <%= f.submit value: "Send request", class: 'btn btn-primary' %>
+      <% end %>
 </div>

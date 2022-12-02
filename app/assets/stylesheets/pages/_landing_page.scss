@@ -1,5 +1,17 @@
-.background-lines {
+.fixBug {
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
+.background-lines {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  overflow: hidden;
+  left: 0px;
+  top: 0px;
   div {
     height: 150%;
     border-left: 1px solid $black;
@@ -69,6 +81,10 @@
     justify-content: center;
     margin: 0;
   }
+  p{
+    text-align: center;
+    color: $white;
+  }
 }
 
 #squares {
@@ -133,8 +149,9 @@
     opacity: 0;
     pointer-events: none;
     h2 {
-      margin: 0;
+      margin-bottom: 5rem;
       padding: 0;
+      color: $white;
     }
     &.active {
       opacity: 1;

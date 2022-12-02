@@ -6,14 +6,23 @@
       <% card_color = colors[color_step] %>
       <% color_step += 1 %>
       <% color_step = 0 if color_step > 2 %>
-      <a class="artist-card" href='/artists/<%=artist.id%>'>
-        <div class="tiles">
-          <div class="color-tile" style="background: <%= card_color %>"></div>
-        </div>
+      <% liked = current_user.user_likes.where('artist_id = ?', artist.id).length == 1 %>
+      <% if liked %>
+        <% like_id = current_user.user_likes.where('artist_id = ?', artist.id)[0].id %>
+      <% end %>
+      <div class="outer-artist" data-controller='artist-like'
+                                data-artist-like-remove-value = "/user_likes/<%=like_id%>"
+                                data-artist-like-add-value = "/artists/<%=artist.id%>/user_likes">
+        <a class="artist-card" href='/artists/<%=artist.id%>'>
+
+          <div class="rating" style="color: <%= card_color %>">★6.9</div>
+
+          <div class="tiles">
+            <div class="color-tile" style="background: <%= card_color %>"></div>
+          </div>
+
           <img src="<%= cl_image_path artist.photos[0].key %>" alt="artist photo" class="main-img">
 
-          <div class="grid-item grid-item-1" style="background: <%= card_color %>"></div>
-          <div class="rating" style="color: <%= card_color %>">★6.9</div>
           <div class="top">
             <div id='artist-name-tags'>
               <h2><%= artist.user.first_name %></h2>
@@ -27,8 +36,20 @@
             <div class='line' style="background: <%= card_color %>"></div>
             <h4 style="color: <%= card_color %>"><%= artist.genre %></h4>
             </div>
-            <i class="fa-regular fa-heart"></i>
           </div>
+
         </a>
+
+        <div class='like_button'>
+          <% if liked %>
+            <i class="fa-solid fa-heart liked" data-action='click->artist-like#like'
+                                         data-artist-like-target='button'></i>
+          <% else %>
+            <i class="fa-solid fa-heart" data-action='click->artist-like#like'
+                                         data-artist-like-target='button'></i>
+          <% end %>
+        </div>
+
+      </div>
     <% end %>
   </div>
