@@ -4,12 +4,13 @@
   <div class="photo_div">
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+    </div>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
@@ -25,6 +26,7 @@
         <img src="<%= cl_image_path @artist.photos[2].key %>" class="container-fluid" alt="Responsive image">
       </div>
     </div>
+    <div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="sr-only">Previous</span>
@@ -36,17 +38,24 @@
     </div>
   </div>
 
-  <div id="book_contact" class=" d-flex justify-content-between">
+  <div class= "metrix-info">
+    <div class="container content-action">
+      <div id="row-action" class="d-flex justify-content-around">
+        <i class="fa-solid fa-calendar orange"></i>
+        <h2 class="orange">book me </h2>
+        <i class="fa-regular fa-paper-plane"></i>
+        <h2>text me </h2>
+      </div>
+    </div>
 
-  </div>
-
-  <div id="rating_name" class=" d-flex justify-content-between">
-
-    <h2><strong><%= @artist.name %></strong></h2>
+    <div class="name-row d-flex justify-content-between">
+      <h2><strong>Rating</strong></h2>
+      <h2><strong><%= @artist.name %></strong></h2>
+    </div>
   </div>
 
   <div class="description">
-
+    <%# <p><%=@artist.location%>
     <p><%=@artist.description%></p>
     <p class="text-right"><strong>#<%= @artist.genre%>, #<%= @artist.instrument %></strong></p>
   </div>
