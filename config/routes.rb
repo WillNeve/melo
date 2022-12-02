@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   get 'artists/create_confirmation', to: 'artists#new_artist_confirmation', as: :new_artist_confirmation
 
   resources :artists do
-    resources :reviews, only: %i[new create]
+    resources :reviews, only: %i[new create index]
     resources :bookings, only: %i[new create]
+    resources :user_likes, only: %i[create]
   end
+
+  resources :user_likes, only: %i[index destroy]
 
   resources :bookings, except: %i[new create]
   resources :dm_rooms do

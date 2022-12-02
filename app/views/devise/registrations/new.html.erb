@@ -1,42 +1,73 @@
-<div class="container">
-  <h2 class='text-center'>Be out there</h2>
+<div class="container fixBug">
+  <div class= background-lines>
+    <div class='vl-center'></div>
+    <div class='vl-r1'></div>
+    <div class='vl-r2'></div>
+    <div class='vl-r3'></div>
+    <div class='vl-r4'></div>
+    <div class='vl-r5'></div>
+    <div class='vl-r6'></div>
+    <div class='vl-l1'></div>
+    <div class='vl-l2'></div>
+    <div class='vl-l3'></div>
+    <div class='vl-l4'></div>
+    <div class='vl-l5'></div>
+    <div class='vl-l6'></div>
+  </div>
+
+    <div class="form-headers">
+      <h1 id="melo-logo-text">mélo</h1>
+      <h2 id='melo-slogan'>Be out there</h2>
+    </div>
 
   <div id='melo-form'>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :first_name,
+        <div class="first-name-flex">
+          <%= f.input :first_name,
                     required: true,
                     autofocus: true,
                     input_html: {:id => "first_name", autocomplete: "first name" }%>
-        <%= f.input :last_name,
+        </div>
+        <div class="last-name-flex">
+          <%= f.input :last_name,
                     class: 'label_last_name',
                     required: true,
                     autofocus: true,
                     input_html: {:id => "last_name", autocomplete: "last name" }%>
-        <%= f.input :email,
+        </div>
+        <div class="email-flex">
+          <%= f.input :email,
                     required: true,
                     autofocus: true,
                     input_html: {:id => "email", autocomplete: "email" }%>
+        </div>
+          <div class="phone-number-flex">
         <%= f.input :phone_number,
                     required: false,
                     autofocus: true,
                     input_html: {:id => "phone_number", autocomplete: "Mobile" }%>
+        </div>
+          <div class="password-flex">
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                     input_html: {:id => "password", autocomplete: "new-password" } %>
+        </div>
+          <div class="password-confirmation-flex">
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: {:id => "password_confirmation", autocomplete: "new-password" } %>
+        </div>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
+        <%= f.button :submit, "Sign up", class: "btn btn-primary"%>
       </div>
     <% end %>
   </div>
 
-  <%= render "devise/shared/links" %>
+  <%# <%= render "devise/shared/links" %>
 </div>

@@ -24,7 +24,6 @@
     display: flex;
     width: 100%;
     padding: 0px 15px;
-    margin-top:auto;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -32,6 +31,7 @@
       #melo-logo-text{
         font-size: 3.3rem;
         text-decoration: none;
+        margin-bottom: -0.5rem;
       }
 
       .nav_button{

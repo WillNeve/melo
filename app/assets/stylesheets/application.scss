@@ -37,14 +37,21 @@ body {
   box-sizing: border-box;
 }
 
-#melo-logo-text {
+#melo-logo-text, #melo-slogan {
   font-family: 'Futura Bold', sans-serif;
   color: $gray;
   margin: 0;
 }
+
 .btn {
   font-size: 1.2rem;
 }
 .btn-primary {
   color: $white;
+}
+
+.red-text {
+  color: $red;
+  text-decoration: none;
+  font-style: normal;
 }

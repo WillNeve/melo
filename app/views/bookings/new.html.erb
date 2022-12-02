@@ -1,7 +1,86 @@
-<div class="container">
+<%# <%# <div class="container">
   <%= simple_form_for [@artist, @booking] do |f| %>
-  <%= f.input :start_date, as: :datetime, html5: true %>
-  <%= f.input :end_date, as: :datetime, html5: true %>
-  <%= f.submit value: "Let's go!", class: 'btn btn-primary' %>
-  <% end %>
+  <%# <%= f.input :start_date, as: :datetime, html5: true %>
+  <%# <%= f.input :end_date, as: :datetime, html5: true
+  <%# <%= f.submit value: "Let's go!", class: 'btn btn-primary'
+  <%# <% end
+<%# </div> %>
+
+<div class="container">
+ <h2>Ready to book <%= @booking.artist %> ?</h2>
+  <div class="picker">
+    <div class="picker-window"></div>
+    <div class="triangle"></div>
+    <ul class="picker-day">
+    <%# <% start_date = Date.parse %>
+    <%# <% end_date = Date.parse  %>
+    <%# <><%= (start_date..end_date).each do |day| %>
+     <%# :day, as :date_time %>
+
+     <%# Date.now  %>
+      <li>Mon Dec <span>1</span></li>
+      <li>Tue Dec <span>2</span></li>
+      <li>Wed Dec <span>3</span></li>
+      <li>Thu Dec <span>4</span></li>
+      <li>Fri Dec <span>5</span></li>
+      <li>Sat Dec <span>6</span></li>
+      <li>Sun Dec <span>7</span></li>
+      <li>Mon Dec <span>8</span></li>
+      <li>Tue Dec <span>9</span></li>
+      <li>Wed Dec 10</li>
+      <li>Thu Dec 11</li>
+      <li>Fri Dec 12</li>
+      <li>Sat Dec 13</li>
+      <li>Sun Dec 14</li>
+      <li>Mon Dec 15</li>
+      <li>Tue Dec 16</li>
+      <li>Wed Dec 17</li>
+      <li>Thu Dec 18</li>
+      <li>Fri Dec 19</li>
+      <li>Sat Dec 20</li>
+      <li>Sun Dec 21</li>
+      <li>Mon Dec 22</li>
+      <li>Tue Dec 23</li>
+      <li>Wed Dec 24</li>
+      <li>Thu Dec 25</li>
+      <li>Fri Dec 26</li>
+      <li>Sat Dec 27</li>
+      <li>Sun Dec 28</li>
+    </ul>
+    <ul class="picker-hour">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+      <li>11</li>
+      <li>12</li>
+    </ul>
+    <ul class="picker-minute">
+      <li>00</li>
+      <li>05</li>
+      <li>10</li>
+      <li>15</li>
+      <li>20</li>
+      <li>25</li>
+      <li>30</li>
+      <li>35</li>
+      <li>40</li>
+      <li>45</li>
+      <li>50</li>
+      <li>55</li>
+    </ul>
+    <ul class="picker-am">
+      <li>AM</li>
+      <li>PM</li>
+    </ul>
+  </div>
+  <div class='btn btn-primary'>
+  <button>Pick a date</button>
+  </div>
 </div>
