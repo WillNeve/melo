@@ -12,11 +12,11 @@
 
   <div class= "metrix-info">
     <div class="book_me">
-      <i class="fa-solid fa-calendar orange calendar"></i>
+      <i class="fa-solid fa-calendar orange icon"></i>
       <h2>book me </h2>
     </div>
     <div class="text_me">
-      <i class="fa-regular fa-paper-plane"></i>
+      <i class="fa-regular fa-paper-plane icon orange"></i>
       <h2>text me </h2>
     </div>
   </div>
@@ -30,7 +30,9 @@
 
   <div class="description">
     <%# <p><%=@artist.location%></p>
-    <H4>I'm in</H4>
+    <div class="introduction">
+      <h4>I'm in </h4><h4 class="color"><strong>LONDON</strong></h4>
+    </div>
     <p><%=@artist.description%></p>
     <div class="tag">
       <p ><strong>#<%= @artist.genre%>, #<%= @artist.instrument %></strong></p>
