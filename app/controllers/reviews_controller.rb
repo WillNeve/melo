@@ -1,9 +1,15 @@
 require 'date'
 
 class ReviewsController < ApplicationController
+
+  def index
+    @artist = Artist.find(params[:artist_id])
+    @reviews = @artist.reviews
+  end
+
   def new
     @review = Review.new
-    @artist = artist.find(params[:artist_id])
+    @artist = Artist.find(params[:artist_id])
   end
 
   def create
@@ -16,6 +22,11 @@ class ReviewsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @user = current_user
+    @review = Review.new(params[:artist_id])
   end
 
   private
