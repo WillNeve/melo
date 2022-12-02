@@ -34,13 +34,13 @@
             <% artist_ratings = (artist_ratings.to_f / @artist.reviews.length).round(1)%>
         <% end %>
 
-      <h3 class="rating"><span >★ <%= artist_ratings%>  </span></h3>
+     <%= link_to "<h3 class='rating'><span >★ #{artist_ratings}</span></h3>".html_safe, artist_reviews_path(@artist.id) %>
       <h2 class="artist_name"><strong><%= @artist.name %></strong></h2>
     </div>
   </div>
 
   <div class="description">
-    <%# <p><%=@artist.location%></p>
+    <%# <p><%=@artist.location</p> %>
     <div class="introduction">
       <h4>I'm in </h4><h4 class="color"><strong>LONDON</strong></h4>
     </div>
