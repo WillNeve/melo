@@ -9,7 +9,7 @@ class PagesController < ApplicationController
       redirect_to artists_path
     when 'artist'
       @artist = current_user.artist
-      redirect_to artist_dashboard_path(@artist)
+      redirect_to dashboard_path(@artist)
     end
   end
 
@@ -20,4 +20,8 @@ class PagesController < ApplicationController
   def new_user
     @no_buttons = true
   end
+
+  def dashboard
+  end
+  
 end

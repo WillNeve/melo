@@ -4,27 +4,23 @@
   <div class="links">
 
     <div>
-    <%= link_to 'Homepage', destroy_user_session_path, class: 'btn btn-primary' %>
+    <%= link_to 'Homepage', root_path, class: 'btn btn-primary' %>
     </div>
 
     <div>
-    <%= link_to 'Messages', destroy_user_session_path, class: 'btn btn-primary' %>
+    <%= link_to 'Bookings', bookings_path, class: 'btn btn-primary' %>
     </div>
 
     <div>
-    <%= link_to 'Profile', destroy_user_session_path, class: 'btn btn-primary' %>
-    </div>
-
-    <div>
-    <%= link_to 'Dashboard', destroy_user_session_path, class: 'btn btn-primary' %>
-    </div>
-
-    <div>
-    <%= link_to 'Bookings', destroy_user_session_path, class: 'btn btn-primary' %>
+    <%= link_to 'Messages', dm_rooms_path, class: 'btn btn-primary' %>
     </div>
 
     <div>
     <%= link_to 'Saved Artists', user_likes_path, class: 'btn btn-primary' %>
+    </div>
+
+    <div>
+    <%= link_to 'Dashboard', dashboard_path, class: 'btn btn-primary' %>
     </div>
 
     <div>

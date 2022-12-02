@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'artists/:id/bookings/confirmed', to: 'bookings#confirmation', as: :confirmation_booking
   get 'artists/new_guidelines', to: 'artists#new_artist_guidelines', as: :new_artist_guidelines
   get 'artists/create_confirmation', to: 'artists#new_artist_confirmation', as: :new_artist_confirmation
+  get '/dashboard', to: 'pages#dashboard', as: :dashboard
 
   resources :artists do
     resources :reviews, only: %i[new create index]

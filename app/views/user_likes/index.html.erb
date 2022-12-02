@@ -1,9 +1,13 @@
 
 <div class="container">
   <h2>Your <em class='red-text'>liked</em> artists:</h2>
+  <div class="like-card-container">
   <% @likes.each do |like| %>
-    <% artist = like.artist %>
-    <p>Artist name: <%= artist.name %></p>
-    <%= link_to 'Remove from list', user_like_path(like), class: 'btn btn-primary', data: {turbo_method: :delete} %>
+    <div class="like-card">
+      <% artist = like.artist %>
+      <a href='artists/<%= like.artist.id %>'class='name'><%= artist.name %></a>
+      <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, user_like_path(like), class: 'btn btn-primary remove', data: {turbo_method: :delete} %>
+    </div>
   <% end %>
+  </div>
 </div>

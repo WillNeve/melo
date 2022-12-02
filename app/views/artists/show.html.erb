@@ -1,57 +1,43 @@
 <div class="container">
 
 
-  <div class="photo_div">
-
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
+  <div class="artist_photo_div">
     <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="<%= cl_image_path @artist.photos[0].key %>" class="container-fluid class="show-img">
-      </div>
+        <img src="<%= cl_image_path @artist.photos[0].key %>" class="photo">
 
-      <div class="item">
-        <img src="<%= cl_image_path @artist.photos[1].key %>" class="container-fluid" alt="Responsive image">
-      </div>
+        <img src="<%= cl_image_path @artist.photos[1].key %>" class="photo" alt="Responsive image">
 
-      <div class="item">
-        <img src="<%= cl_image_path @artist.photos[2].key %>" class="container-fluid" alt="Responsive image">
-      </div>
+        <img src="<%= cl_image_path @artist.photos[2].key %>" class="photo" alt="Responsive image">
+  </div>
+
+  <div class= "metrix-info">
+    <div class="book_me">
+      <i class="fa-solid fa-calendar orange calendar"></i>
+      <h2>book me </h2>
     </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-      </a>
+    <div class="text_me">
+      <i class="fa-regular fa-paper-plane"></i>
+      <h2>text me </h2>
     </div>
   </div>
 
-  <div id="book_contact" class=" d-flex justify-content-between">
-
-  </div>
-
-  <div id="rating_name" class=" d-flex justify-content-between">
-
-    <h2><strong><%= @artist.name %></strong></h2>
+  <div class="second_row_info">
+    <div class="name-row d-flex justify-content-between">
+      <h3 class="rating">Rating</h3>
+      <h2 class="artist_name"><strong><%= @artist.name %></strong></h2>
+    </div>
   </div>
 
   <div class="description">
-
+    <%# <p><%=@artist.location%></p>
+    <H4>I'm in</H4>
     <p><%=@artist.description%></p>
-    <p class="text-right"><strong>#<%= @artist.genre%>, #<%= @artist.instrument %></strong></p>
+    <div class="tag">
+      <p ><strong>#<%= @artist.genre%>, #<%= @artist.instrument %></strong></p>
+    </div>
   </div>
-
-  <div id="socials" class="text-center" >
+  <div class= "social">
+    <h4><strong>SOCIALS</strong></h4>
     <a href=<%=@artist.tiktok_url %> target=" blank">
       <i class="fa-brands fa-tiktok"></i>
       <br>
@@ -67,5 +53,4 @@
     <a href=<%=@artist.instagram_url %> target=" blank">
       <i class="fa-brands fa-instagram"></i>
   </div>
-
 </div>
