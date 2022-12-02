@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="heading">
+    <h2>★</h2>
+    <h1><strong><%=@artist.name  %></strong></h1>
+  </div>
+  <% @reviews.each do |review| %>
+      <br>
+        <div class="review_card">
+
+          <div class="review_header">
+            <div class="left">
+              <img src="<%= cl_image_path review.user.avatar.key %>" alt="avatar" class="avatar">
+              <div id="review"><p><strong><%= review.user.first_name.upcase %> <%= review.user.last_name.upcase %></strong>,</p></div>
+            </div>
+
+              <% rating_number = review.rating.to_i %>
+              <% rating_star = []%>
+              <% rating_number.times do %>
+              <% rating_star << '★' %>
+              <% end %>
+
+            <div id="stars"><p><%= rating_star.join %></p></div>
+          </div>
+
+            <p class="comment">
+              "<%= review.comment %>"
+              <p class="date"><%= review.created_at.strftime("%d/%m/%Y") %></p>
+            </p>
+
+        </div>
+  <% end %>
+</div>

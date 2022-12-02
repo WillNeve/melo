@@ -1,0 +1,51 @@
+.heading {
+  border-bottom: #221E1F;
+  border: bottom width 3px;
+  text-align: right;
+  display:flex;
+  justify-content: space-between;
+  margin-top: 100px;
+
+}
+
+.review_card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  row-gap: 5px;
+
+  .review_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .left {
+      display: flex;
+      flex-direction: row;
+      column-gap: 10px;
+      align-items: center;
+    }
+
+      #review {
+        vertical-align: bottom;
+        p {
+          margin-bottom: 0px !important;
+        }
+      }
+
+      #stars {
+        margin: 0px 0px 0px;
+        vertical-align: bottom;
+      }
+      .comment {
+        display: inline !important;
+      }
+  }
+  .date {
+    text-align: right;
+    color:  #828581;
+  }
+}
