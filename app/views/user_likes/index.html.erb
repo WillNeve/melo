@@ -1,0 +1,9 @@
+
+<div class="container">
+  <h2>Your <em class='red-text'>liked</em> artists:</h2>
+  <% @likes.each do |like| %>
+    <% artist = like.artist %>
+    <p>Artist name: <%= artist.name %></p>
+    <%= link_to 'Remove from list', user_like_path(like), class: 'btn btn-primary', data: {turbo_method: :delete} %>
+  <% end %>
+</div>

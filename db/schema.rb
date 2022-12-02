@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_162930) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_161221) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -108,6 +108,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_162930) do
     t.index ["user_id"], name: "index_user_dms_on_user_id"
   end
 
+  create_table "user_likes", force: :cascade do |t|
+    t.bigint "artist_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_user_likes_on_artist_id"
+    t.index ["user_id"], name: "index_user_likes_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "location", default: ""
     t.string "role", default: "booker"
@@ -137,4 +146,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_162930) do
   add_foreign_key "reviews", "users"
   add_foreign_key "user_dms", "dm_rooms"
   add_foreign_key "user_dms", "users"
+  add_foreign_key "user_likes", "artists"
+  add_foreign_key "user_likes", "users"
 end
