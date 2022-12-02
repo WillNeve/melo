@@ -1,11 +1,10 @@
 .heading {
-  border-bottom: #221E1F;
-  border: bottom width 3px;
+  border-bottom: solid #221E1F 3px;
   text-align: right;
   display:flex;
   justify-content: space-between;
-  margin-top: 100px;
-
+  padding-top: 15px;
+  margin-top: 40px;
 }
 
 .review_card {
@@ -43,7 +42,9 @@
       .comment {
         display: inline !important;
       }
+
   }
+
   .date {
     text-align: right;
     color:  #828581;

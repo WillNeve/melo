@@ -1,6 +1,15 @@
 <div class="container">
   <div class="heading">
-    <h2>★</h2>
+    <h2><% if @artist.reviews.empty? %>
+            <% artist_ratings = "New" %>
+        <% else %>
+            <% artist_ratings = 0 %>
+            <% @artist.reviews.each do |review| %>
+              <% artist_ratings += review.rating  %>
+            <% end %>
+            <% artist_ratings = (artist_ratings.to_f / @artist.reviews.length).round(1)%>
+        <% end %>
+      <span >★ <%= artist_ratings%>  </span></h2>
     <h1><strong><%=@artist.name  %></strong></h1>
   </div>
   <% @reviews.each do |review| %>
@@ -24,9 +33,11 @@
 
             <p class="comment">
               "<%= review.comment %>"
-              <p class="date"><%= review.created_at.strftime("%d/%m/%Y") %></p>
+              <span class="date"><%= review.created_at.strftime("%d/%m/%Y") %></span>
             </p>
 
         </div>
   <% end %>
+
+
 </div>
