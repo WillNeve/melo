@@ -7,9 +7,8 @@ export default class extends Controller {
 
   connect() {
     flatpickr(this.startTimeTarget, {
-      enableTime: true,
-      // Provide an id for the plugin to work
-      plugins: [new rangePlugin({ input: "#end_time"})]})
-flatpickr(this.endTimeTarget, {})
+        enableTime: true,
+        plugins: [new rangePlugin({ input: "#end_time"})]})
+    flatpickr(this.endTimeTarget, {})
 }
 }
