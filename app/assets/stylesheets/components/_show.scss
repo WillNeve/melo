@@ -1,1 +1,88 @@
 @import "photo";
+
+.metrix-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  padding: 10px 5px;
+  align-items: center;
+  margin: 0 auto;
+  border-top: 2px solid $gray;
+  .book_me, .text_me {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: center;
+    h2 {
+      margin-bottom: 0px;
+      font-family: $body-font;
+    }
+    .calendar{
+      size-adjust: 150%;
+    }
+  }
+}
+
+.second_row_info{
+  border-top: 2px solid $gray;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  padding-top: 10px;
+  padding-left: 5px;
+  align-items: center;
+  margin: 0 auto;
+  h2{
+    font-family: $headers-font;
+    font-size: 240%;
+  }
+
+}
+
+.description{
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  align-items: center;
+  margin: 0 auto;
+  font-family: $body-font;
+  .tag{
+    text-align: right;
+    p{
+      color: $red;
+    }
+  }
+}
+
+.social{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  padding: 10px 5px;
+  align-items: center;
+  margin: 0 auto;
+  border-top: 2px solid $gray;
+
+  h4{
+    font-family: $headers-font;
+  }
+}
+
+
+
+.artist_photo_div {
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  .photo {
+    width: 90%;
+    object-fit: cover;
+  }
+}
+.orange{
+ color: $orange;
+}
