@@ -1,6 +1,32 @@
 <div class="container">
-  <h1>Your conversations:</h1>
+  <h2 style='font-family: "DIN bold", sans-serif'>Messages:</h2>
   <div class="rooms-container">
-
+      <% colors = ['#B9302A', '#0363B6', '#E8B503'] %>
+      <% color_step = 0; %>
+    <% @rooms.each do |room| %>
+      <% card_color = colors[color_step] %>
+      <% color_step += 1 %>
+      <% color_step = 0 if color_step > 2 %>
+      <a href='/message_rooms/<%= room.id %>' class="room-card" style='border: 2px solid <%= card_color %>'>
+        <% room.users.each do |user| %>
+          <% @other_user = user if user != current_user %>
+        <% end %>
+        <% if room.messages.last.content.length > 26 %>
+          <% message = room.messages.last.content.first(26) + '...' %>
+        <% else %>
+          <% message = room.messages.last.content %>
+        <% end %>
+          <img src="<%= cl_image_path @other_user.avatar.key %>" alt="<%=@other_user.first_name%> portrait" class='avatar'>
+        <div class="content">
+          <div class="left">
+            <h3 class='chat-name' style='color: <%= card_color %>'><%= @other_user.first_name %> <%= @other_user.last_name %></h3>
+            <p class="last-message"><%= message %></p>
+          </div>
+          <div class="right">
+            <p class="time-stamp"><%= room.messages.last.created_at %></p>
+          </div>
+        </div>
+      </a>
+    <% end %>
   </div>
 </div>
