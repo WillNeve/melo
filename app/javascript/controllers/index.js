@@ -7,8 +7,14 @@ import { application } from "./application"
 import ArtistLikeController from "./artist_like_controller"
 application.register("artist-like", ArtistLikeController)
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import MessageroomSubscriptionController from "./messageroom_subscription_controller"
+application.register("messageroom-subscription", MessageroomSubscriptionController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
