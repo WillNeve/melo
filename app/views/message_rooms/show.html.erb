@@ -1,21 +1,15 @@
 <div class="container">
-  <div class="chat-container">
+  <div id="chat-container" data-controller='messageroom-subscription' data-messageroom-subscription-room-id-value='<%=@room.id%>' data-messageroom-subscription-user-id-value='<%= current_user.id %>'>
     <h2>Chat between <em>You</em> and <em class='red-text'><%= @other_user.first_name %></em></h2>
-    <%= @room.users[0].first_name %>
-    and
-    <%= @room.users[1].first_name %>
-
-    <div class="messages-container">
+    <div class="messages-container" data-messageroom-subscription-target="messages">
       <% @messages.each do |message| %>
-        <div class="message-card">
-          <p><%= message.content %></p>
-        </div>
+        <%= render "messages/message", message: message %>
       <% end %>
     </div>
 
 
-    <%= simple_form_for [@room, @message] do |f| %>
-    <%= f.input :content %>
+    <%= simple_form_for [@room, @message],html: { class: "chat-form"} do |f| %>
+    <%= f.input :content, placeholder: 'Write your message...', label: false %>
     <%= f.submit 'Send', class: 'btn btn-primary' %>
     <% end %>
   </div>
