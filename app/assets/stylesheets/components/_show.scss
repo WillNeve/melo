@@ -14,6 +14,7 @@
     flex-direction: row;
     column-gap: 10px;
     align-items: center;
+    text-decoration: none !important;
     h2 {
       margin-bottom: 0px;
       font-family: $body-font;
@@ -22,10 +23,16 @@
     }
     .calendar{
       size-adjust: 150%;
+      text-decoration: none !important;
+    }
+    .fa-paper-plane {
+      text-decoration: none !important;
     }
   }
 }
-
+.rating {
+  text-decoration: none !important;
+}
 .second_row_info{
   border-top: 2px solid $gray;
   flex-direction: row;
