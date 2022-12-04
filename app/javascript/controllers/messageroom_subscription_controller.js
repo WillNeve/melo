@@ -15,6 +15,9 @@ export default class extends Controller {
     console.log(`Subscribe to the chatroom with the id ${this.roomIdValue}. as ${this.userIdValue}`)
   }
 
+  disconnect() {
+    this.channel.unsubscribe()
+  }
 
   #insertMessageAndScrollDown(data) {
     console.log(data)
