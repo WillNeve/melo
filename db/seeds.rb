@@ -122,7 +122,7 @@ bobguitar = {
 }
 user = User.new(bobguitar)
 avatar = URI.open('https://i.pinimg.com/originals/69/96/5c/69965c2849ec9b7148a5547ce6714735.jpg')
-user.avatar.attach(io: avatar, filename: "user_avatar.png", content_type: "image/jpg")
+user.avatar.attach(io: avatar, filename: "user_avatar_bob.png", content_type: "image/jpg")
 user.save
 puts "Rob Bass is ready to Rock N' Roll 🔥🎸🔥 "
 
@@ -134,7 +134,8 @@ robbass = {
   password: "123123",
   password_confirmation: "123123"
 }
+avatar = URI.open('https://i.pinimg.com/originals/69/96/5c/69965c2849ec9b7148a5547ce6714735.jpg')
 user = User.new(robbass)
-user.avatar.attach(io: avatar, filename: "user_avatar.png", content_type: "image/jpg")
+user.avatar.attach(io: avatar, filename: "user_avatar_rob.png", content_type: "image/jpg")
 user.save
 # ---------------------------------------------------------------
