@@ -11,8 +11,8 @@ class User < ApplicationRecord
   has_one :artist
   has_many :reviews
   has_many :bookings
-  has_many :user_dms
-  has_many :dm_rooms, through: :user_dms
+  has_many :users_rooms
+  has_many :message_rooms, through: :users_rooms
   has_many :messages
   has_many :user_likes
   has_one_attached :avatar

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_02_154147) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_03_223925) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,22 +73,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_154147) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "dm_rooms", force: :cascade do |t|
-    t.bigint "dm_room_id", null: false
-    t.bigint "user_id", null: false
+  create_table "message_rooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dm_room_id"], name: "index_dm_rooms_on_dm_room_id"
-    t.index ["user_id"], name: "index_dm_rooms_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
-    t.bigint "dm_room_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "message_room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dm_room_id"], name: "index_messages_on_dm_room_id"
+    t.index ["message_room_id"], name: "index_messages_on_message_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -101,15 +97,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_154147) do
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_reviews_on_artist_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
-  end
-
-  create_table "user_dms", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "dm_room_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["dm_room_id"], name: "index_user_dms_on_dm_room_id"
-    t.index ["user_id"], name: "index_user_dms_on_user_id"
   end
 
   create_table "user_likes", force: :cascade do |t|
@@ -138,19 +125,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_154147) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_rooms", force: :cascade do |t|
+    t.bigint "message_room_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_room_id"], name: "index_users_rooms_on_message_room_id"
+    t.index ["user_id"], name: "index_users_rooms_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "artists", "users"
   add_foreign_key "bookings", "artists"
   add_foreign_key "bookings", "users"
-  add_foreign_key "dm_rooms", "dm_rooms"
-  add_foreign_key "dm_rooms", "users"
-  add_foreign_key "messages", "dm_rooms"
+  add_foreign_key "messages", "message_rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "reviews", "artists"
   add_foreign_key "reviews", "users"
-  add_foreign_key "user_dms", "dm_rooms"
-  add_foreign_key "user_dms", "users"
   add_foreign_key "user_likes", "artists"
   add_foreign_key "user_likes", "users"
+  add_foreign_key "users_rooms", "message_rooms"
+  add_foreign_key "users_rooms", "users"
 end
