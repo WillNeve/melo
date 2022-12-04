@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="chat-container">
+    <h2>Chat between <em>You</em> and <em class='red-text'><%= @other_user.first_name %></em></h2>
+    <%= @room.users[0].first_name %>
+    and
+    <%= @room.users[1].first_name %>
+
+    <div class="messages-container">
+      <% @messages.each do |message| %>
+        <div class="message-card">
+          <p><%= message.content %></p>
+        </div>
+      <% end %>
+    </div>
+
+
+    <%= simple_form_for [@room, @message] do |f| %>
+    <%= f.input :content %>
+    <%= f.submit 'Send', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
