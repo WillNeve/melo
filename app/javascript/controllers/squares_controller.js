@@ -7,7 +7,9 @@ export default class extends Controller {
     console.log('tiles connected')
   }
 
-  aboutMode() {
+  aboutMode(event) {
+    event.preventDefault()
+
     if (this.squaresContTarget.classList.contains('about')) {
       this.aboutTarget.innerHTML = 'About us'
 
