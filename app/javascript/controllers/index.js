@@ -10,12 +10,6 @@ application.register("artist-like", ArtistLikeController)
 import BookingConfirmationController from "./booking_confirmation_controller"
 application.register("booking-confirmation", BookingConfirmationController)
 
-import FlatpickerController from "./flatpicker_controller"
-application.register("flatpicker", FlatpickerController)
-
-import FlatpickrController from "./flatpickr_controller"
-application.register("flatpickr", FlatpickrController)
-
 import MessageroomSubscriptionController from "./messageroom_subscription_controller"
 application.register("messageroom-subscription", MessageroomSubscriptionController)
 
