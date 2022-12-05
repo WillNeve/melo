@@ -35,9 +35,9 @@ class MessageRoomsController < ApplicationController
   def index
     # find all a users_rooms
     @rooms = current_user.message_rooms
-    @room.users.each do |user|
-      @other_user = user if user != current_user
-    end
+    # @room.users.each do |user|
+    #   @other_user = user if user != current_user
+    # end
   end
 
   def denied
