@@ -4,7 +4,7 @@
   <div data-controller="carousel" class="swiper swiper-pointer-events swiper-backface-hidden">
     <%# <!-- Wrapper for slides --> %>
 
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false" data-touch="true">
       <div class="carousel-indicators">
         <% @artist.photos.each_with_index do |photo, index| %>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>" aria-current="true" aria-label="Slide <%= index + 1 %>"></button>
