@@ -726,6 +726,7 @@ stimulus-carousel@^4.0.0:
   dependencies:
     swiper "^7.4.1"
 
+
 stimulus@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-3.2.1.tgz#bf049a4379ed4ff7475515acce1f0b6fa15a0187"
