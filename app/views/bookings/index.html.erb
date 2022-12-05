@@ -11,16 +11,32 @@
 
           <div class="meta">
             <h5 class='artist'><em class='red-text'><strong><%= title_formatted %></em></strong></h5>
-            <h6 class='title'><em>(booking ref: #<%= booking.id %>)</em></h6>
+            <% if booking.confirmed %>
+              <h6 class='title'><em>(booking ref: #<%= booking.id %>)</em></h6>
+            <% end %>
               <div class="booking-content">
                 <div class="booking-content-part1">
                   <p class='location'><strong>Location:  </strong><%= booking.location.capitalize %></p>
                   <p class='type'><strong>Event type:  </strong><%= booking.event_type.capitalize %></p>
                   <p class='duration'><%= start_time.strftime('%d %m %Y').split.join('/') %> - <%= start_time.strftime('%H %M').split.join('h') %></p>
                   <p class='duration'><%= end_time.strftime('%d %m %Y').split.join('/') %> - <%= end_time.strftime('%H %M').split.join('h') %></p>
+                  <% if booking.confirmed %>
+                    <p class="confirmation green-text">Confirmed <i class="fa-solid fa-check"></i></p>
+                  <% else %>
+                    <p class="confirmation red-text">Awaiting confirmation</i></p>
+                  <% end %>
+                  <% if booking.paid %>
+                    <p  class="paid green-text">Paid <i class="fa-solid fa-check"></i></p>
+                  <% else %>
+                    <p class="paid red-text">Awaiting Payment</p>
+                    <%= link_to 'Pay Now', '/', class: 'btn btn-success pay-button' %>
+                  <% end %>
                 </div>
-                <div class="booking-content-part2 gray"><%= link_to 'Leave a review', new_artist_review_path(booking.artist_id)%>
+                <% if booking.confirmed && booking.paid %>
+                <div class="booking-content-part2 gray">
+                  <%= link_to 'Leave a review', new_artist_review_path(booking.artist_id)%>
                 </div>
+                <% end %>
             </div>
           </div>
         </div>

@@ -1,11 +1,14 @@
 .booking-card {
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: fit-content;
   margin-bottom: 20px;
   margin-top:7px;
   width: 90%;
   font-family: $body-font;
+  .pay-button {
+    font-size: 0.7rem;
+  }
   .infos {
     display: flex;
     flex-direction: row;
@@ -26,7 +29,7 @@
     justify-content: flex-end;
 
     p{
-      line-height: 3px;
+      margin-bottom: 0px !important;
     }
     .title {
       margin-top: 0px !important;
