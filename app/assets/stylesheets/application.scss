@@ -50,3 +50,35 @@ a {
   text-decoration: none;
   font-style: normal;
 }
+
+
+.green-text {
+  color: $green;
+  text-decoration: none;
+  font-style: normal;
+}
+
+
+.red-bubble {
+  color: $white;
+  width: fit-content;
+  text-decoration: none;
+  font-style: normal;
+  padding: 4px 6px;
+  font-size: 0.7rem;
+  border-radius: 5px;
+  background-color: rgba($color: $red, $alpha: 0.7);
+  margin-bottom: 5px;
+}
+
+.green-bubble {
+  color: $white;
+  text-decoration: none;
+  width: fit-content;
+  font-style: normal;
+  font-size: 0.7rem;
+  padding: 4px 6px;
+  border-radius: 5px;
+  background-color: rgba($color: $green, $alpha: 0.7);
+  margin-bottom: 5px;
+}
