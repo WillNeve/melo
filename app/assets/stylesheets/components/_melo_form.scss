@@ -127,8 +127,15 @@
 
     .user_avatar {
       label {
+        position: relative;
         background-color: $green;
         color: $white;
+      }
+      input {
+        margin-left: 10px;
+        background: none;
+        outline: none;
+        border: none;
       }
     }
 
