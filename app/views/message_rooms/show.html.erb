@@ -20,7 +20,7 @@
 
     <%= simple_form_for [@room, @message],html: { class: "chat-form"} do |f| %>
     <%= f.input :content, placeholder: 'Write your message...', label: false, input_html: { data: {messageroom_subscription_target: 'input'} } %>
-    <%= f.submit 'Send', class: 'btn btn-primary', data: { action: 'click->messageroom-subscription#submit' } %>
+    <%= f.submit 'Send', class: 'btn btn-primary', data: { action: 'click->messageroom-subscription#submit' action: 'touchstart->messageroom-subscription#submit' } %>
     <% end %>
   </div>
 </div>
