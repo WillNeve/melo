@@ -94,7 +94,7 @@ puts "Creating Reviews" # let's make 5 different USERS
   user = User.find(rand(1..(User.all.length - 1)))
   artist = Artist.find(rand(1..(Artist.all.length - 1)))
   comment = Faker::Lorem.paragraph
-  rating = rand(1..5)
+  rating = rand(4..5)
   review_params = { comment:, rating:, user: }
   review = Review.new(review_params)
   review.artist = artist
