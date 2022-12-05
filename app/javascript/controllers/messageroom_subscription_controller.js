@@ -15,11 +15,11 @@ export default class extends Controller {
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
-  submit(event) {
-    if (this.inputTarget.value = '') {
-      event.preventDefault()
-    }
-  }
+  // submit(event) {
+  //   if (this.inputTarget.value = '') {
+  //     event.preventDefault()
+  //   }
+  // }
 
   disconnect() {
     this.channel.unsubscribe()

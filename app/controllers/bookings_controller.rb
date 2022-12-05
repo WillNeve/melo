@@ -23,11 +23,9 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.user = @user
     @booking.artist = @artist
-    if @booking.save
-      redirect_to confirmation_booking_path(@booking)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    return if @booking.save
+
+    render :new, status: :unprocessable_entity
   end
 
   def edit
