@@ -33,7 +33,7 @@
 
           <div class="top">
             <div id='artist-name-tags'>
-              <h2><%= artist.user.first_name %></h2>
+              <h2 class="artist_name" style=" <%= artist.name.length > 10 ? "font-size: 250%;" : "font-size: 400%;"%>"><%= artist.name %></h2>
               <p class="tags" style="color: <%= card_color %>">#singer#concert#love#guitar#electronic</p>
             </div>
           </div>
