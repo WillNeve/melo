@@ -7,20 +7,32 @@
 <%# </div> %>
 
 
-<div class="container">
+<div class="container" data-controller='booking-confirmation'>
   <div class="melo-slogan">
     <% @booking.artist = Artist.find(params[:artist_id]) %>
     <h2 class='mb-4'>Ready to book <em class='red-text'><%= @booking.artist.name %></em> ?</h2>
   </div>
-    <%= simple_form_for [@artist, @booking] do |f| %>
-      <%= f.input :start_date, as: :datetime, html5: true %>
-      <div class='form-seperator'></div>
-      <%= f.input :end_date, as: :datetime, html5: true %>
-      <div class='form-seperator'></div>
-      <%= f.input :event_type, label: 'Event Type', collection: %w[wedding birthday private venue] %>
-      <div class='form-seperator'></div>
-      <%= f.input :location %>
-      <div class='form-seperator'></div>
-      <%= f.submit value: "Send request", class: 'btn btn-primary' %>
-      <% end %>
+  <%= simple_form_for [@artist, @booking], class: 'booking-form' do |f| %>
+    <%= f.input :start_date, as: :datetime, html5: true %>
+    <div class='form-seperator'></div>
+    <%= f.input :end_date, as: :datetime, html5: true %>
+    <div class='form-seperator'></div>
+    <%= f.input :event_type, label: 'Event Type', collection: %w[wedding birthday private venue] %>
+    <div class='form-seperator'></div>
+    <%= f.input :location %>
+    <div class='form-seperator'></div>
+    <%= f.submit value: "Send request", data: { action: 'click->booking-confirmation#confirm' }, class: 'btn btn-primary' %>
+  <% end %>
+
+  <div class="diffuser" data-booking-confirmation-target='background'></div>
+
+  <div class="b-confirmation" data-booking-confirmation-target='modal'>
+    <i class="fa-solid fa-check"></i>
+    <h3>Sweet! <br> Your booking request has been sent to <em class='red-text'><%= @booking.artist.name %></em></h3>
+    <div class="bottom">
+      <%= link_to 'Home', root_path, class: 'btn btn-danger' %>
+      <%= link_to 'Bookings', '/bookings', class: 'btn btn-danger' %>
+    </div>
+
+  </div>
 </div>
