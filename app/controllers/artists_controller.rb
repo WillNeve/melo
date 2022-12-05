@@ -5,6 +5,9 @@ class ArtistsController < ApplicationController
   end
 
   def new
+    if current_user.artist
+      redirect_to artist_already_exists_path
+    end
     @artist = Artist.new
   end
 
@@ -31,9 +34,12 @@ class ArtistsController < ApplicationController
     @artist = current_user.artist
   end
 
+  def artist_already_extists
+  end
+
   private
 
   def artist_params
-    params.require(:artist).permit(:name, :is_group, :genre, :description, :instrument, :avatar, :banner, :photos, :soundcloud_url, :spotify_url, :bandcamp_url, :instagram_url, :tiktok_url)
+    params.require(:artist).permit(:name, :is_group, :genre, :description, :instrument, :banner, :soundcloud_url, :spotify_url, :bandcamp_url, :instagram_url, :tiktok_url, photos: [])
   end
 end
