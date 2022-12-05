@@ -14,9 +14,11 @@
       <%= render "shared/melo_nav" %>
       <div style='width: 100%; height: 4rem; margin-bottom: 15px;c'></div>
       <%# ^^ this is here to add margin to the content so it doesnt go under fixed navbar %>
-      <div data-controller='navbar'>
-        <%= render "shared/melo_menu" %>
-      </div>
+      <% unless @no_menu %>
+        <div data-controller='navbar'>
+          <%= render "shared/melo_menu" %>
+        </div>
+      <% end %>
     <% end %>
     <%= render "shared/flashes" %>
     <%= yield %>
