@@ -1,13 +1,15 @@
 <div class="container">
 
 
-  <div class="artist_photo_div">
-    <!-- Wrapper for slides -->
-        <img src="<%= cl_image_path @artist.photos[0].key %>" class="photo">
+  <div data-controller="carousel" class="swiper-container">
+    <%# <!-- Wrapper for slides --> %>
+      <div class="swiper-wrapper">
+          <img src="<%= cl_image_path @artist.photos[0].key %>" class="photo swiper-slide">
 
-        <img src="<%= cl_image_path @artist.photos[1].key %>" class="photo" alt="Responsive image">
+          <img src="<%= cl_image_path @artist.photos[1].key %>" class="photo swiper-slide" alt="Responsive image">
 
-        <img src="<%= cl_image_path @artist.photos[2].key %>" class="photo" alt="Responsive image">
+          <img src="<%= cl_image_path @artist.photos[2].key %>" class="photo swiper-slide" alt="Responsive image">
+        </div>
   </div>
 
   <div class= "metrix-info">
