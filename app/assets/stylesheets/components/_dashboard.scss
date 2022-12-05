@@ -1,0 +1,21 @@
+.dashboard-title{
+  display: flex;
+  border-bottom: 2px solid $gray;
+  box-shadow: 50%;
+  text-align: end;
+  height: 90%;
+  width: 100%;
+  h2{
+    font-size: 280%;
+    text-align: end;
+  }
+
+}
+
+.dashboard-card{
+  height: 200px;
+  width:100%;
+  border: 2px solid;
+  margin-top: 5px;
+  text-align: row;
+}
