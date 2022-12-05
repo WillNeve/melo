@@ -3,7 +3,12 @@
     <%# <h2>Chat between <em>You</em> and <em class='red-text'><%= @other_user.first_name %>
     <div class="recipient-info">
     <img src="<%= cl_image_path @other_user.avatar.key %>" alt="" class="avatar">
-    <h2><em class='red-text'><%= @other_user.artist.name %></em></h2>
+    <% if @other_user.artist %>
+        <h2><em class='red-text'><%= @other_user.artist.name %></em></h2>
+    <% else %>
+        <h2><em class='blue-text'><%= @other_user.first_name %> <%= @other_user.last_name %></em></h2>
+    <% end %>
+
 
     </div>
     <div class="messages-container" data-messageroom-subscription-target="messages">
