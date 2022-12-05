@@ -5,14 +5,20 @@ export default class extends Controller {
   static values =
   { roomId: Number,
     userId: Number}
-  static targets = ["messages", "message"]
+  static targets = ["messages", "message", "input", 'submit']
 
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "MessageroomChannel", id: this.roomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
-    console.log(`Subscribe to the chatroom with the id ${this.roomIdValue}. as ${this.userIdValue}`)
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+  }
+
+  submit(event) {
+    if (this.inputTarget.value = '') {
+      event.preventDefault()
+    }
   }
 
   disconnect() {
@@ -20,7 +26,7 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
-    console.log(data)
+    this.inputTarget.value = ''
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
     const last_message = this.messageTargets[this.messageTargets.length - 1]
@@ -30,4 +36,6 @@ export default class extends Controller {
       last_message.classList.remove('own')
     }
   }
+
+
 }
