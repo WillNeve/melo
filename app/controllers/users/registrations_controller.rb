@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'open-uri'
+
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -10,9 +12,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    return if resource.avatar.key
+
+    # here we assign the user a default avatar unless one has already been provided
+    avatar = URI.open('https://i.pinimg.com/originals/69/96/5c/69965c2849ec9b7148a5547ce6714735.jpg')
+    resource.avatar.attach(io: avatar, filename: "user_avatar_#{resource.id}.png", content_type: "image/jpg")
+    resource.save
+  end
 
   # GET /resource/edit
   # def edit

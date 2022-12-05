@@ -74,7 +74,7 @@
       }
     }
 
-    .user_first_name, .user_last_name, .user_password, .user_email, .user_password_confirmation, .user_phone_number {
+    .user_first_name, .user_last_name, .user_password, .user_email, .user_password_confirmation, .user_phone_number, .user_avatar {
       position: relative;
       display: flex;
       flex-direction: row;
@@ -122,6 +122,20 @@
     .user_password {
       .form-text {
         display: none;
+      }
+    }
+
+    .user_avatar {
+      label {
+        position: relative;
+        background-color: $green;
+        color: $white;
+      }
+      input {
+        margin-left: 10px;
+        background: none;
+        outline: none;
+        border: none;
       }
     }
 
