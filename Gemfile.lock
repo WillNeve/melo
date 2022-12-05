@@ -296,7 +296,7 @@ DEPENDENCIES
   simple_calendar (~> 2.4)
   simple_form!
   sprockets-rails
-  stimulus-rails
+  stimulus-rails (~> 1.2.0)
   turbo-rails
   tzinfo-data
   web-console
