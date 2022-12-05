@@ -16,25 +16,8 @@
   font-family: 'Futura Bold';
   src: url('./fonts/Futura-Bold.ttf') format('truetype');
 }
-@font-face {
-  font-family: 'DIN med';
-  src: url('./fonts/DIN-Medium.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'DIN light';
-  src: url('./fonts/DIN-Light.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'DIN regular';
-  src: url('./fonts/DIN-Regular.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'DIN bold';
-  src: url('./fonts/DIN-Bold.ttf') format('truetype');
-}
 
 body {
-  font-family: 'DIN med', sans-serif;
   box-sizing: border-box;
 }
 
