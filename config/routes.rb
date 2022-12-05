@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard', as: :dashboard
   get '/artists/:id/message', to: 'message_rooms#create', as: :new_chat
   get '/message_rooms/access_denied', to: 'message_rooms#denied', as: :room_access_denied
+  get '/artist_already_created', to: 'artists#artist_already_exists', as: :artist_already_exists
 
   resources :artists do
     resources :reviews, only: %i[new create index]

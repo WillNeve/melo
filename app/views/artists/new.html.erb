@@ -6,6 +6,7 @@
     <%= f.input :genre %>
     <%= f.input :description %>
     <%= f.input :instrument %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'please upload 3 photos' %>
     <%= f.input :soundcloud_url %>
     <%= f.input :spotify_url %>
     <%= f.input :bandcamp_url %>
