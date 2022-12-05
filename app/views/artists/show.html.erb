@@ -1,17 +1,31 @@
 <div class="container">
 
 
-  <div data-controller="carousel" class="swiper-container">
+  <div data-controller="carousel" class="swiper swiper-pointer-events swiper-backface-hidden">
     <%# <!-- Wrapper for slides --> %>
-      <div class="swiper-wrapper">
-          <img src="<%= cl_image_path @artist.photos[0].key %>" class="photo swiper-slide">
 
-          <img src="<%= cl_image_path @artist.photos[1].key %>" class="photo swiper-slide" alt="Responsive image">
-
-          <img src="<%= cl_image_path @artist.photos[2].key %>" class="photo swiper-slide" alt="Responsive image">
-        </div>
-  </div>
-
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+      <div class="carousel-indicators">
+        <% @artist.photos.each_with_index do |photo, index| %>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>" aria-current="true" aria-label="Slide <%= index + 1 %>"></button>
+        <% end %>
+      </div>
+      <div class="carousel-inner swiper-wrapper">
+        <% @artist.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <img src="<%= cl_image_path photo.key %>" class="photo swiper-slide">
+          </div>
+        <% end %>
+      </div>
+      <%# <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button> %>
+    </div>
   <div class= "metrix-info">
     <a href='/artists/<%= @artist.id %>/bookings/new' class="book_me">
       <i class="fa-solid fa-calendar orange icon"></i>
