@@ -223,7 +223,7 @@
   justify-content: center;
   align-items: center;
   row-gap: 5px;
-  transition: background-color .3s ease;
+  transition: all .3s ease;
   cursor: pointer;
   div {
     width: 25px;
@@ -233,8 +233,11 @@
     transition: all .5s ease;
   }
   &.active {
+    background-color: rgba($color: $orange, $alpha: 0.0);
+    border: 2px solid rgba($color: $white, $alpha: 0.3);
     div {
       margin-left: 20px;
+      background-color: $white;
     }
     .line1 {
         transform: rotate(45deg) translateY(14px);

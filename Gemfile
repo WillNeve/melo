@@ -40,6 +40,8 @@ gem "redis", "~> 4.0"
 
 gem 'faker'
 
+gem 'stripe'
+
 # gem 'popper_js', '~> 2.11.5'
 
 # Use Redis adapter to run Action Cable in production
