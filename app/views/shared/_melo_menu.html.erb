@@ -1,39 +1,61 @@
 
 
 <div id="menu-container" data-navbar-target='bubbleMenu'>
+
+  <div class= background-lines>
+    <div class='vl-center'></div>
+    <div class='vl-r1'></div>
+    <div class='vl-r2'></div>
+    <div class='vl-r3'></div>
+    <div class='vl-r4'></div>
+    <div class='vl-r5'></div>
+    <div class='vl-r6'></div>
+    <div class='vl-l1'></div>
+    <div class='vl-l2'></div>
+    <div class='vl-l3'></div>
+    <div class='vl-l4'></div>
+    <div class='vl-l5'></div>
+    <div class='vl-l6'></div>
+  </div>
+
   <div class="links">
 
-    <div>
-    <%= link_to 'Homepage', root_path, class: 'btn btn-primary' %>
+    <div class="menu_home">
+      <%= link_to 'Homepage', root_path, class: 'menu_home menu_right' %>
     </div>
 
-    <div>
-    <%= link_to 'Bookings', bookings_path, class: 'btn btn-primary' %>
+    <div class="menu_bookings">
+      <%= link_to 'Bookings', bookings_path, class: 'menu_bookings menu_left' %>
     </div>
 
-    <div>
-    <%= link_to 'Messages', dm_rooms_path, class: 'btn btn-primary' %>
+    <div class="menu_messages">
+      <%= link_to 'Messages', message_rooms_path, class: 'menu_messages menu_right' %>
     </div>
 
-    <div>
-    <%= link_to 'Saved Artists', user_likes_path, class: 'btn btn-primary' %>
+    <div class="menu_savedartist">
+      <%= link_to 'Saved Artists', user_likes_path, class: 'menu_savedartist menu_left' %>
     </div>
 
-    <div>
-    <%= link_to 'Dashboard', dashboard_path, class: 'btn btn-primary' %>
+    <div class="menu_dashboard">
+      <%= link_to 'Dashboard', dashboard_path, class: 'menu_dashboard menu_right' %>
     </div>
 
-    <div>
-    <%= link_to 'Log Out', destroy_user_session_path, data: {turbo_method: :delete}, class: 'btn btn-primary'%>
+    <div class="menu_logout">
+      <%= link_to 'Log Out', destroy_user_session_path, data: {turbo_method: :delete}, class: 'menu_logout menu_left'%>
     </div>
 
   </div>
+
+  <%# <div class="menu_logout">
+    <%= link_to 'Log Out', destroy_user_session_path, data: {turbo_method: :delete}, class: 'menu_logout'%>
+
+
 </div>
 
 <% unless @no_buttons %>
-<div id='toggle' data-action='click->navbar#showMenu' data-navbar-target='toggleButton'>
+<a id='toggle' data-action='click->navbar#showMenu' data-action='touchstart->navbar#showMenu' data-navbar-target='toggleButton'>
   <div class='line1'></div>
   <div class='line2'></div>
   <div class='line3'></div>
-</div>
+</a>
 <% end %>

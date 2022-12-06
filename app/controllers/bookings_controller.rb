@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = current_user.bookings
+    @bookings = current_user.bookings.order(created_at: :desc)
     # Scope your query to the dates being shown:
-    start_date = params.fetch(:start_date, Date.today).to_date
-    @bookings = Booking.where(start_date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    # start_date = params.fetch(:start_date, Date.today).to_date
+    # @bookings = Booking.where(start_date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def new
@@ -23,11 +23,9 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.user = @user
     @booking.artist = @artist
-    if @booking.save
-      redirect_to confirmation_booking_path(@booking)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    return if @booking.save
+
+    render :new, status: :unprocessable_entity
   end
 
   def edit

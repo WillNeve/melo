@@ -3,13 +3,15 @@
   z-index: 998;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  // text-align: center;
   z-index: 4;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
   transform: translateY(100%);
-  background-color: $orange;
+  background-color: #221E1F;
   box-shadow: 0px 0px 3px 2px rgba($color: #000000, $alpha: 0.1);
   transition: all .5s ease-in-out;
   &.show {
@@ -18,41 +20,183 @@
       opacity: 1;
     }
   }
+
+  .background-lines {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+    div {
+      height: 150%;
+      border-left: 2px solid #E3D4C3;
+      position: absolute;
+      transform-origin: bottom;
+      left: 50%;
+      bottom: 0%;
+      opacity: 0.6;
+    }
+    .vl-center {
+      transform: translateX(-50%);
+    }
+    .vl-r1 {
+      transform: rotate(2.7deg);
+    }
+    .vl-r2 {
+      transform: rotate(5.3deg);
+    }
+    .vl-r3 {
+      transform: rotate(7.9deg);
+    }
+    .vl-r4 {
+      transform: rotate(9.9deg);
+    }
+    .vl-r5 {
+      transform: rotate(12.8deg);
+    }
+    .vl-r6 {
+      transform: rotate(15.8deg);
+    }
+    .vl-l1 {
+      transform: rotate(-2.7deg);
+    }
+    .vl-l2 {
+      transform: rotate(-5.3deg);
+    }
+    .vl-l3 {
+      transform: rotate(-7.9deg);
+    }
+    .vl-l4 {
+      transform: rotate(-9.9deg);
+    }
+    .vl-l5 {
+      transform: rotate(-12.8deg);
+    }
+    .vl-l6 {
+      transform: rotate(-15.8deg);
+    }
+  }
+
+  .menu_home {
+    background: $red;
+    justify-content: center;
+    position: relative;
+    right: -20px;
+
+      .menu_right {
+        color: $pink !important;
+        text-align: center;
+        right: 20px;
+      }
+  }
+
+  .menu_bookings {
+    background: $yellow;
+    justify-content: center;
+    position: relative;
+    left: -20px;
+
+      .menu_left {
+        color: $black !important;
+        text-align: center;
+        left: 20px;
+      }
+   }
+
+  .menu_messages {
+    background: $blue;
+    justify-content: center;
+    position: relative;
+    right: -20px;
+
+    .menu_right {
+      color: $pink !important;
+      text-align: center;
+      right: 20px;
+    }
+   }
+
+  .menu_savedartist {
+    background: $red;
+    justify-content: center;
+    position: relative;
+    left: -20px;
+
+    .menu_left {
+      color: $pink !important;
+      text-align: center;
+      left: 20px;
+
+    }
+  }
+
+  .menu_dashboard {
+    background: $yellow;
+    justify-content: center;
+    position: relative;
+    right: -20px;
+
+    .menu_right {
+      color: $black !important;
+      text-align: center;
+      right: 20px;
+    }
+  }
+
+  .menu_logout {
+    background: $blue;
+    justify-content: center;
+    position: relative;
+    left: -20px;
+
+    .menu_left {
+      color: $pink !important;
+      text-align: center;
+      left: 20px;
+    }
+  }
+
   .links {
     display: flex;
     flex-direction: column;
     // border: 2px solid greenyellow;
     width: 100%;
-    align-items: flex-end;
-    justify-content: flex-start;
+    align-items: center;
+    // justify-content: center;
     opacity: 0;
+    transform: translateY(-4rem);
     transition: all .5s ease-in-out;
+
     div {
       display: flex;
       position: relative;
       flex-direction: row;
-      justify-content: flex-end;
-      width: 100%;
+      // justify-content: center;
+      width: 80%;
       height: fit-content;
-      &::after {
-        content: '';
-        width: 90%;
-        height: 1px;
-        background-color: $gray;
-        position: absolute;
-        bottom: 0px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
+      margin: 6px;
+      // &::after {
+      //   content: '';
+      //   width: 90%;
+      //   height: 1px;
+      //   background-color: $gray;
+      //   position: absolute;
+      //   bottom: 0px;
+      //   left: 50%;
+      //   transform: translateX(-50%);
+      // }
       a {
         // border: 2px solid green;
-        position: relative;
+        // position: relative;
         font-family: 'DIN bold', sans-serif;
-        width: fit-content;
-        margin-right: 30px;
-        font-size: 2rem;
-        color: $gray;
+        width: 100%;
+        font-size: 1.5rem;
+        // color: $gray;
+        background: none;
+        border: none;
         // box-shadow: 0px 0px 3px 2px rgba($color: #000000, $alpha: 0.1);
+
       }
     }
   }
@@ -74,9 +218,7 @@
   align-items: center;
   row-gap: 5px;
   transition: background-color .3s ease;
-  &:hover {
-    background-color: rgba($color: $orange, $alpha: 1.0);
-  }
+  cursor: pointer;
   div {
     width: 25px;
     height: 5px;
@@ -86,7 +228,7 @@
   }
   &.active {
     div {
-      margin-left: 15px;
+      margin-left: 20px;
     }
     .line1 {
         transform: rotate(45deg) translateY(14px);
