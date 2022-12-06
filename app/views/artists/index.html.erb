@@ -16,13 +16,13 @@
         <a class="artist-card" href='/artists/<%=artist.id%>'>
           <% if artist.reviews.empty? %>
             <% artist_ratings = "New" %>
-        <% else %>
+          <% else %>
             <% artist_ratings = 0 %>
             <% artist.reviews.each do |review| %>
               <% artist_ratings += review.rating  %>
             <% end %>
             <% artist_ratings = (artist_ratings.to_f / artist.reviews.length).round(1)%>
-        <% end %>
+          <% end %>
           <div class="rating" style="color: <%= card_color %>">★<%=artist_ratings%></div>
 
           <div class="tiles">
@@ -33,8 +33,32 @@
 
           <div class="top">
             <div id='artist-name-tags'>
-              <h2 class="artist_name" style=" <%= artist.name.length > 10 ? "font-size: 250%;" : "font-size: 400%;"%>"><%= artist.name %></h2>
-              <p class="tags" style="color: <%= card_color %>">#singer#concert#love#guitar#electronic</p>
+                <% if artist.name.length < 10 %>
+                    <% font_size = "360%" %>
+                <% elsif artist.name.length > 17 %>
+                    <% font_size = "200%" %>
+                <% else %>
+                    <% font_size = "250%" %>
+                <% end %>
+
+                <% if artist.name.length < 10 %>
+                    <% margin_top = "0px" %>
+                <% elsif artist.name.length > 17 %>
+                    <% margin_top = "8px" %>
+                <% else %>
+                    <% margin_top = "4px" %>
+                <% end %>
+
+                <% if artist.name.length < 10 %>
+                    <% margin_tag = "-15px" %>
+                <% elsif artist.name.length > 17 %>
+                    <% margin_tag = "-8px" %>
+                <% else %>
+                    <% margin_tag = "-10px" %>
+                <% end %>
+
+              <h2 class="artist_name" style="font-size: <%= font_size %>; margin-top: <%= margin_top %>"> <%= artist.name %></h2>
+              <p class="tags" style="color: <%= card_color %>; margin-top: <%= margin_tag %>"><%= artist.tag %></p>
             </div>
           </div>
 
