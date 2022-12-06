@@ -125,7 +125,7 @@
     .message-card {
       background: $tan;
       border: 1px solid $gray;
-      width: 60%;
+      width: fit-content;
       border-radius: 5px;
       margin-bottom: 10px;
       &.own {
@@ -142,6 +142,7 @@
         color: rgba($color: #000000, $alpha: 0.7);
         font-family: 'DIN bold', sans-serif;
         background: none;
+        text-align: center;
         margin-bottom: 0px;
         padding: 0px 5px;
       }
