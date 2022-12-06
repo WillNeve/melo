@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_213336) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_124350) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,7 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_213336) do
     t.string "genre"
     t.text "description"
     t.boolean "is_group", default: false
-    t.float "rate"
     t.string "instrument"
     t.string "soundcloud_url"
     t.string "spotify_url"
@@ -57,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_213336) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rate_cents", default: 0, null: false
     t.index ["user_id"], name: "index_artists_on_user_id"
   end
 
@@ -88,6 +88,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_213336) do
     t.datetime "updated_at", null: false
     t.index ["message_room_id"], name: "index_messages_on_message_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "artist_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_orders_on_artist_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -143,6 +156,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_213336) do
   add_foreign_key "bookings", "users"
   add_foreign_key "messages", "message_rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "orders", "artists"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "artists"
   add_foreign_key "reviews", "users"
   add_foreign_key "user_likes", "artists"

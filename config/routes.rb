@@ -25,7 +25,12 @@ Rails.application.routes.draw do
   end
   # add destroy to messages
 
+  resources :orders, only: %i[show create] do
+    resources :payments, only: :new
+  end
+
   resources :user_dms, only: %i[new create destroy]
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
