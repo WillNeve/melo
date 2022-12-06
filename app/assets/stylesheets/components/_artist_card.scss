@@ -79,22 +79,22 @@
     flex-direction: column;
     align-items: flex-end;
     // border: 2px solid red;
+    margin-top: 2px;
     width: fit-content;
     height: fit-content;
     top: 71%;
     right: 10px;
       h2 {
         position: relative;
-        font-size: 400%;
         color: $gray;
-        margin: 0;
-        margin-bottom: 0px !important;
+        // margin-top: 4px;
+        margin-bottom: 0 !important;
         z-index: 5;
       }
       .tags {
         font-size: 87.5%;
         font-weight: 600;
-        margin-top: -15px;
+        // margin-top: 0px;
         margin-bottom: 0px !important;
         position: relative;
         display: block;
