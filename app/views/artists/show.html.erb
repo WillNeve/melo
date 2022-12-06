@@ -45,14 +45,14 @@
         <% end %>
 
      <%= link_to "<h3 class='rating'><span >★ #{artist_ratings}</span></h3>".html_safe, artist_reviews_path(@artist.id) %>
-      <h2 class="artist_name" style=" <%= @artist.name.length > 10 ? "font-size: 130%;" : "font-size: 180%;"%>"><%= @artist.name %></h2>
+      <h2 class="artist_name" style=" <%= @artist.name.length > 20 ? "font-size: 150%;" : "font-size: 190%;"%>"><%= @artist.name %></h2>
     </div>
   </div>
 
   <div class="description">
     <%# <p><%=@artist.location</p> %>
     <div class="introduction">
-      <h4>I'm in </h4><h4 class="color"><strong>LONDON</strong></h4>
+      <h4>Based in: </h4><h4 class="color"><strong>LONDON</strong></h4>
     </div>
     <p><%=@artist.description%></p>
     <div class="tag">
