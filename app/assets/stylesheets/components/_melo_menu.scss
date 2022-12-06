@@ -2,9 +2,8 @@
   position: fixed;
   z-index: 998;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  // text-align: center;
+  flex-direction: column;
   z-index: 4;
   bottom: 0;
   left: 0;
@@ -80,79 +79,85 @@
 
   .menu_home {
     background: $red;
+    height: 50px;
     justify-content: center;
     position: relative;
     right: -20px;
 
       .menu_right {
         color: $pink !important;
-        text-align: center;
+        text-align: end;
         right: 20px;
       }
   }
 
   .menu_bookings {
     background: $yellow;
+    height: 50px;
     justify-content: center;
     position: relative;
     left: -20px;
 
       .menu_left {
         color: $black !important;
-        text-align: center;
+        text-align: start;
         left: 20px;
       }
    }
 
   .menu_messages {
     background: $blue;
+    height: 50px;
     justify-content: center;
     position: relative;
     right: -20px;
 
     .menu_right {
       color: $pink !important;
-      text-align: center;
+      text-align: end;
       right: 20px;
     }
    }
 
   .menu_savedartist {
     background: $red;
+    height: 50px;
     justify-content: center;
     position: relative;
     left: -20px;
 
     .menu_left {
       color: $pink !important;
-      text-align: center;
+      text-align: start;
       left: 20px;
-
     }
   }
 
   .menu_dashboard {
     background: $yellow;
+    height: 50px;
     justify-content: center;
     position: relative;
     right: -20px;
 
     .menu_right {
       color: $black !important;
-      text-align: center;
+      text-align: end;
       right: 20px;
     }
   }
 
   .menu_logout {
     background: $blue;
+    height: 50px;
     justify-content: center;
+
     position: relative;
     left: -20px;
 
     .menu_left {
       color: $pink !important;
-      text-align: center;
+      text-align: start;
       left: 20px;
     }
   }
@@ -163,9 +168,9 @@
     // border: 2px solid greenyellow;
     width: 100%;
     align-items: center;
-    // justify-content: center;
+    // justify-content: center !important;
     opacity: 0;
-    transform: translateY(-4rem);
+    transform: translateY(-4.5rem);
     transition: all .5s ease-in-out;
 
     div {
@@ -189,7 +194,8 @@
       a {
         // border: 2px solid green;
         // position: relative;
-        font-family: 'DIN bold', sans-serif;
+        justify-content: center;
+        font-family: $body-font;
         width: 100%;
         font-size: 1.5rem;
         // color: $gray;
@@ -206,7 +212,7 @@
   z-index: 5;
   width: 70px;
   height: 70px;
-  background-color: rgba($color: $orange, $alpha: 0.2);
+  background-color: rgba($color: $orange, $alpha: 0.8);
   position: fixed;
   z-index: 999;
   bottom: 50px;
@@ -219,6 +225,7 @@
   row-gap: 5px;
   transition: all .3s ease;
   cursor: pointer;
+
   div {
     width: 25px;
     height: 5px;

@@ -42,7 +42,8 @@ CSV.foreach(filepath, headers: :first_row) do |row|
     bandcamp_url: row[13].gsub('“', '').gsub('”', ''),
     instagram_url: row[14].gsub('“', '').gsub('”', ''),
     tiktok_url: row[10].gsub('“', '').gsub('”', ''),
-    is_group: true
+    is_group: true,
+    tag: row[23].gsub('“', '').gsub('”', '')
   )
 
   artist.user = user

@@ -6,7 +6,6 @@
   <%# <% end
 <%# </div> %>
 
-
 <div class="container" data-controller='booking-confirmation'>
   <div class="melo-slogan">
     <% @booking.artist = Artist.find(params[:artist_id]) %>
@@ -26,12 +25,12 @@
 
   <div class="diffuser" data-booking-confirmation-target='background'></div>
 
-  <div class="b-confirmation" data-booking-confirmation-target='modal'>
+  <div class="b-confirmation" data-booking-confirmation-target='modal' style="background-image: linear-gradient(to bottom, rgba(232, 181, 3,0.2), rgba(3, 99, 182,0.2), rgba(185, 48, 42,0.2)), url('<%= cl_image_path @artist.photos[0].key %>');">
     <i class="fa-solid fa-check"></i>
     <h3>Sweet! <br> Your booking request has been sent to <em class='red-text'><%= @booking.artist.name %></em></h3>
     <div class="bottom">
-      <%= link_to 'Home', root_path, class: 'btn btn-danger' %>
-      <%= link_to 'Bookings', '/bookings', class: 'btn btn-danger' %>
+      <%= link_to 'Home', root_path, class: 'btn btn-primary' %>
+      <%= link_to 'Bookings', '/bookings', class: 'btn btn-primary' %>
     </div>
 
   </div>

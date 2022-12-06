@@ -1,0 +1,70 @@
+// #background-container {
+//   // position: fixed;
+//   // display: flex;
+//   // justify-content: center;
+//   // flex-direction: column;
+//   // z-index: 0;
+//   // bottom: 0;
+//   // left: 0;
+//   // width: 100%;
+//   // height: 100%;
+//   // transform: translateY(100%);
+//   // background-color: #221E1F;
+
+  .background-lines-white {
+    // background-color: #221E1F;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+    div {
+      height: 150%;
+      border-left: 2px solid $white;
+      position: absolute;
+      transform-origin: bottom;
+      left: 50%;
+      bottom: 0%;
+      opacity: 0.8;
+    }
+    .vl-center {
+      transform: translateX(-50%);
+    }
+    .vl-r1 {
+      transform: rotate(2.7deg);
+    }
+    .vl-r2 {
+      transform: rotate(5.3deg);
+    }
+    .vl-r3 {
+      transform: rotate(7.9deg);
+    }
+    .vl-r4 {
+      transform: rotate(9.9deg);
+    }
+    .vl-r5 {
+      transform: rotate(12.8deg);
+    }
+    .vl-r6 {
+      transform: rotate(15.8deg);
+    }
+    .vl-l1 {
+      transform: rotate(-2.7deg);
+    }
+    .vl-l2 {
+      transform: rotate(-5.3deg);
+    }
+    .vl-l3 {
+      transform: rotate(-7.9deg);
+    }
+    .vl-l4 {
+      transform: rotate(-9.9deg);
+    }
+    .vl-l5 {
+      transform: rotate(-12.8deg);
+    }
+    .vl-l6 {
+      transform: rotate(-15.8deg);
+    }
+  }

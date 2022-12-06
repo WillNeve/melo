@@ -20,7 +20,11 @@
 body {
   box-sizing: border-box;
 }
-
+.grit {
+  -webkit-mask-image: url("https://ucarecdn.com/9514f9b1-3bf9-4b7c-b31d-9fb8cd6af8bf/");
+  mask-image: url("https://ucarecdn.com/9514f9b1-3bf9-4b7c-b31d-9fb8cd6af8bf/");
+  z-index: -1;
+}
 a {
   text-decoration: none;
 }
