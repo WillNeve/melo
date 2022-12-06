@@ -80,79 +80,85 @@
 
   .menu_home {
     background: $red;
+    height: 50px;
     justify-content: center;
     position: relative;
     right: -20px;
 
       .menu_right {
         color: $pink !important;
-        text-align: center;
+        text-align: end;
         right: 20px;
       }
   }
 
   .menu_bookings {
     background: $yellow;
+    height: 50px;
     justify-content: center;
     position: relative;
     left: -20px;
 
       .menu_left {
         color: $black !important;
-        text-align: center;
+        text-align: start;
         left: 20px;
       }
    }
 
   .menu_messages {
     background: $blue;
+    height: 50px;
     justify-content: center;
     position: relative;
     right: -20px;
 
     .menu_right {
       color: $pink !important;
-      text-align: center;
+      text-align: end;
       right: 20px;
     }
    }
 
   .menu_savedartist {
     background: $red;
+    height: 50px;
     justify-content: center;
     position: relative;
     left: -20px;
 
     .menu_left {
       color: $pink !important;
-      text-align: center;
+      text-align: start;
       left: 20px;
-
     }
   }
 
   .menu_dashboard {
     background: $yellow;
+    height: 50px;
     justify-content: center;
     position: relative;
     right: -20px;
 
     .menu_right {
       color: $black !important;
-      text-align: center;
+      text-align: end;
       right: 20px;
     }
   }
 
   .menu_logout {
     background: $blue;
+    height: 50px;
     justify-content: center;
+
     position: relative;
     left: -20px;
 
     .menu_left {
       color: $pink !important;
-      text-align: center;
+      text-align: start;
       left: 20px;
     }
   }
@@ -165,7 +171,7 @@
     align-items: center;
     // justify-content: center;
     opacity: 0;
-    transform: translateY(-4rem);
+    transform: translateY(-4.5rem);
     transition: all .5s ease-in-out;
 
     div {
