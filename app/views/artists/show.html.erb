@@ -52,9 +52,9 @@
   </div>
 
   <div class="description">
-    <%# <p><%=@artist.location</p> %>
     <div class="introduction">
-      <h4>Based in: </h4><h4 class="color"><strong>LONDON</strong></h4>
+      <h4 class='show-location'>Based in:<strong class="red-text">LONDON</strong></h4>
+      <p>Rate <strong><%= humanized_money_with_symbol(@artist.rate) %>/hour</strong></p>
     </div>
     <p><%=@artist.description%></p>
     <div class="tag">
