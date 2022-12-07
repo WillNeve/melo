@@ -166,3 +166,12 @@ i {
     }
   }
 }
+
+#booking-form {
+  input, select {
+    background: $white;
+  }
+  .btn {
+    background: $orange;
+  }
+}
