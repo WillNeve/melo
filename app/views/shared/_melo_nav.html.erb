@@ -1,23 +1,28 @@
-<div id="melo-nav">
+<div id="melo-nav" data-controller="navbar">
   <div class="bar">
     <a href="/artists" id='melo-logo-text'>mélo</a>
 
-    <% if @index %>
-      <%= form_with url: artists_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "td form-control rounded",
-        placeholder: "Find an artist"%>
-      <%= submit_tag "Search", class: "btn btn-danger" %>
-      <% end %>
-    <% end %>
+  <% if @index %>
+   <div class=" btn btn-default" type="button" id="btn-search" data-action="click->navbar#toggleSearch"><i class="fa fa-search"></i>
+   </div>
+  <% end %>
 
-    <% unless @no_buttons %>
-      <a href="/message_rooms" class="nav_button">
-        <i class="fa-regular fa-paper-plane"></i>
-      </a>
-    <% end %>
+  <% unless @no_buttons %>
+    <a href="/message_rooms" class="nav_button">
+      <i class="fa-regular fa-paper-plane"></i>
+     </a>
+  <% end %>
 
   </div>
-
+  <div class="show-search-bar d-none" style="height:0px;" data-navbar-target="search">
+    <% if @index %>
+        <%= form_with url: artists_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "td form-control rounded",
+          placeholder: "Find an artist"%>
+        <%= submit_tag "Search", class: "btn btn-danger" %>
+        <% end %>
+      <% end %>
+    </div>
 </div>
