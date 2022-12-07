@@ -1,9 +1,6 @@
 #melo-nav {
   position: fixed;
   z-index: 10;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
   background-color: $tan;
   top: 0;
   left: 0;
@@ -25,8 +22,24 @@
     width: 100%;
     padding: 0px 15px;
     flex-direction: row;
+    position: relative;
     justify-content: space-between;
     align-items: center;
+
+    #search-bar {
+      // position: absolute;
+      bottom: 0%;
+      border: none;
+      background-color: $tan;
+
+      #search-btn {
+        bottom: 0%;
+        // position: absolute;
+        background-color: $tan;
+        border: none;
+        color: $black
+      }
+    }
 
       #melo-logo-text{
         font-size: 3.3rem;
@@ -40,4 +53,14 @@
       margin-bottom: -1rem;
       }
   }
+
+  .show-search-bar{
+    height: 30px;
+    width: 100%;
+    transition:ease;
+    position: relative;
+    top: -7px;
+
+  }
+
 }
