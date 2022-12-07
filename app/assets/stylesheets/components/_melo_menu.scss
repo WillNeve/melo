@@ -87,6 +87,7 @@
       .menu_right {
         color: $pink !important;
         text-align: end;
+        vertical-align:middle;
         right: 20px;
       }
   }
@@ -102,6 +103,7 @@
         color: $black !important;
         text-align: start;
         left: 20px;
+        vertical-align:middle;
       }
    }
 
@@ -116,6 +118,7 @@
       color: $pink !important;
       text-align: end;
       right: 20px;
+      vertical-align:middle;
     }
    }
 
@@ -130,6 +133,7 @@
       color: $pink !important;
       text-align: start;
       left: 20px;
+      vertical-align:middle;
     }
   }
 
@@ -144,6 +148,7 @@
       color: $black !important;
       text-align: end;
       right: 20px;
+      vertical-align:middle !important;
     }
   }
 
@@ -159,6 +164,7 @@
       color: $pink !important;
       text-align: start;
       left: 20px;
+      vertical-align:middle;
     }
   }
 
