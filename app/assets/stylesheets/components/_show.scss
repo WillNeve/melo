@@ -63,6 +63,17 @@
       color: $red;
     }
   }
+  .introduction {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .show-location {
+      .red-text {
+        margin-left: 5px;
+      }
+    }
+  }
 }
 
 .social{
