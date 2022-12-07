@@ -23,9 +23,9 @@
     <%= f.submit value: "Send request", data: { action: 'click->booking-confirmation#confirm' }, class: 'btn btn-primary' %>
   <% end %>
 
-  <div class="diffuser show" data-booking-confirmation-target='background'></div>
+  <div class="diffuser" data-booking-confirmation-target='background'></div>
 
-  <div class="b-confirmation show" data-booking-confirmation-target='modal'>
+  <div class="b-confirmation" data-booking-confirmation-target='modal'>
     <div class='gradient'>
       <img src="<%= cl_image_path @artist.photos[0].key %>" alt="confirmation photo">
     </div>

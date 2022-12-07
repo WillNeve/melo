@@ -2,16 +2,17 @@
   <div class="bar">
     <a href="/artists" id='melo-logo-text'>mélo</a>
 
+    <div id="search-bar">
     <% if @index %>
       <%= form_with url: artists_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "td form-control rounded",
         placeholder: "Find an artist"%>
-      <%= submit_tag "Search", class: "btn btn-danger" %>
+      <%= submit_tag "Search", class: "btn btn-danger", id: "search-btn" %>
       <% end %>
     <% end %>
-
+  </div>
     <% unless @no_buttons %>
       <a href="/message_rooms" class="nav_button">
         <i class="fa-regular fa-paper-plane"></i>
