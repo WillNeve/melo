@@ -50,7 +50,10 @@
                   </div>
                   <% if booking.confirmed %>
                     <% unless booking.paid %>
-                      <%= link_to 'Pay Now', '/' %>
+                      <%= form_with url: orders_path do %>
+                      <%= hidden_field_tag 'booking_id', booking.id %>
+                      <%= submit_tag 'Pay Now', class: 'btn btn-primary pay' %>
+                      <% end %>
                     <% end %>
                   <% end %>
                 </div>

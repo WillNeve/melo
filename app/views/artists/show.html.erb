@@ -45,7 +45,9 @@
         <% end %>
 
      <%= link_to "<h3 class='rating'><span >★ #{artist_ratings}</span></h3>".html_safe, artist_reviews_path(@artist.id) %>
-      <h2 class="artist_name" style=" <%= @artist.name.length > 20 ? "font-size: 150%;" : "font-size: 190%;"%>"><%= @artist.name %></h2>
+
+     <h2 class="artist_name" style=" <%= @artist.name.length > 20 ? "font-size: 150%;" : "font-size: 190%;"%>"><%= @artist.name %></h2>
+
     </div>
   </div>
 

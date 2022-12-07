@@ -18,7 +18,7 @@
   overflow: hidden;
   color: $gray;
   font-family: $body-font;
-  .pay-button {
+  .pay {
     font-size: 0.7rem;
   }
   img {
@@ -42,6 +42,12 @@
       align-items: center;
       justify-content: flex-start;
       column-gap: 10px;
+      .artist {
+        margin-bottom: 2px;
+      }
+      .title {
+        margin-bottom: 2px;
+      }
     }
     .bottom {
       p {
