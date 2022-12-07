@@ -17,6 +17,8 @@
   //   background: rgba($gray, 0.7);
   //   transform: translateX(-50%);
   // }
+
+
   .bar  {
     display: flex;
     width: 100%;
@@ -54,6 +56,11 @@
     border:none;
     border-bottom: 1px solid $gray;
     font-size: 18px;
+    &:focus {
+      box-shadow: none;
+      border: none;
+      outline: none;
+    }
   }
 
 
@@ -73,7 +80,7 @@
   }
 
   #btn-search{
-    font-size: 160%;
+    font-size: 180%;
     top: 3px;
     padding: 0px 0px;
     margin-top: 20px;
