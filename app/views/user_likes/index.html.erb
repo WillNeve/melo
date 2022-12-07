@@ -1,13 +1,29 @@
 
 <div class="container">
-  <h2 style='font-family: "DIN bold", sans-serif'>Your <em class='red-text'>saved</em> artists:</h2>
-  <div class="like-card-container">
+
+<h3>Your <em class='red-text'>saved</em> artists:</h2>
+
   <% @likes.each do |like| %>
-    <div class="like-card">
-      <% artist = like.artist %>
-      <a href='artists/<%= like.artist.id %>'class='name'><%= artist.name %></a>
-      <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, user_like_path(like), class: 'btn btn-primary remove', data: {turbo_method: :delete} %>
+    <div class="like-card-container">
+
+      <div class="like-card">
+        <img src='<%= cl_image_path like.artist.photos[0].key %>' />
+
+        <div class="like-artist">
+          <% artist = like.artist %>
+          <a href='artists/<%= like.artist.id %>'class='name'><%= artist.name %></a>
+
+          <div class="details">
+            #<%= like.artist.genre%>, #<%= like.artist.instrument %>
+
+                 <%= link_to '<i class="fa-solid fa-xmark"></i>'.html_safe, user_like_path(like), class: 'btn btn-primary remove', data: {turbo_method: :delete} %>
+
+          </div>
+        </div>
+      </div>
+
     </div>
   <% end %>
-  </div>
+
+
 </div>
