@@ -23,9 +23,12 @@
     <%= f.submit value: "Send request", data: { action: 'click->booking-confirmation#confirm' }, class: 'btn btn-primary' %>
   <% end %>
 
-  <div class="diffuser" data-booking-confirmation-target='background'></div>
+  <div class="diffuser show" data-booking-confirmation-target='background'></div>
 
-  <div class="b-confirmation" data-booking-confirmation-target='modal' style="background-image: linear-gradient(to bottom, rgba(232, 181, 3,0.2), rgba(3, 99, 182,0.2), rgba(185, 48, 42,0.2)), url('<%= cl_image_path @artist.photos[0].key %>');">
+  <div class="b-confirmation show" data-booking-confirmation-target='modal'>
+    <div class='gradient'>
+      <img src="<%= cl_image_path @artist.photos[0].key %>" alt="confirmation photo">
+    </div>
     <i class="fa-solid fa-check"></i>
     <h3>Sweet! <br> Your booking request has been sent to <em class='red-text'><%= @booking.artist.name %></em></h3>
     <div class="bottom">
