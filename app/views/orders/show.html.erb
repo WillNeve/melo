@@ -1,6 +1,5 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col">
+<div class="container order-page">
+  <div class="order-card">
       <% if @order.state = 'paid' %>
         <% color = 'green-text' %>
       <% else %>
@@ -8,13 +7,15 @@
       <% end %>
       <h1>Booking (ref#<%= @order.id %>), Status: <em class='<%=color%>'><%= @order.state.capitalize %></em></h1>
       <ul class="list-unstyled">
-        <li><strong>Paid on:</strong>: <%= @order.created_at.to_date %></li>
+        <li><strong>Paid on</strong>: <%= @order.created_at.to_date %></li>
         <li><strong>Artist</strong>: <%= @order.booking.artist.name %></li>
         <li><strong>TOTAL</strong>: <%= humanized_money_with_symbol @order.price_cents %></li>
         </li>
       </ul>
-      <%= link_to 'Return to my bookings', bookings_path %> <br>
-      <a href='/artists/<%=@order.booking.artist.id%>/message'>Message Artist</a>
+      <div class="buttons">
+        <%= link_to 'Review this artist', new_artist_review_path(@order.booking.artist), class: 'btn btn-success' %>
+        <%= link_to 'Return to my bookings', bookings_path, class: 'btn btn-primary' %>
+        <a href='/artists/<%=@order.booking.artist.id%>/message' class='btn btn-primary'>Message Artist</a>
+      </div>
     </div>
-  </div>
 </div>
