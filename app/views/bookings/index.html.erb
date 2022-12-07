@@ -15,55 +15,63 @@
         <div class='vl-l6'></div>
       </div>
 <h2>Your bookings:</h2>
-  <% @bookings.each do |booking| %>
-    <div class="booking-card">
-        <img src='<%= cl_image_path booking.artist.photos[0].key %>' />
-          <% title_formatted = booking.artist.name.capitalize %>
-          <% start_time = DateTime.parse(booking.start_date.to_s) %>
-          <% end_time = DateTime.parse(booking.end_date.to_s) %>
-          <% booking_duration = end_time - start_time %>
 
-          <div class="meta">
-          <div class="content">
-            <div class="top">
-              <h5 class='artist'><em class='red-text'><strong><%= title_formatted %></em></strong></h5>
-            <% if booking.confirmed %>
-              <h6 class='title'><em>(booking ref: #<%= booking.id %>)</em></h6>
-            <% end %>
-            </div>
-              <div class="bottom">
-                <p class='location extra'><strong>Location:  </strong><%= booking.location.capitalize %></p>
-                <p class='type extra'><strong>Event type:  </strong><%= booking.event_type.capitalize %></p>
-                <div class="duration-range">
-                  <p class='duration'><%= start_time.strftime('%d %m %Y').split.join('/') %> - <%= start_time.strftime('%H %M').split.join('h') %> <i class="fa-solid fa-arrow-right"></i></p>
-                  <p class='duration'><%= end_time.strftime('%d %m %Y').split.join('/') %> - <%= end_time.strftime('%H %M').split.join('h') %></p>
-                </div>
-                <div class="status">
-                  <% if booking.confirmed %>
-                    <p class="confirmation green-bubble">Confirmed <i class="fa-solid fa-check"></i></p>
-                    <% if booking.paid %>
-                      <p  class="paid green-bubble">Paid <i class="fa-solid fa-check"></i></p>
+  <% colors = ['#B9302A', '#0363B6', '#E8B503'] %>
+  <% color_step = 0; %>
+  <% @bookings.each do |booking| %>
+
+    <% card_color = colors[color_step] %>
+    <% color_step += 1 %>
+    <% color_step = 0 if color_step > 2 %>
+      <div class="booking-card" style="box-shadow: 8px 8px <%= card_color %>">
+
+          <img src='<%= cl_image_path booking.artist.photos[0].key %>' />
+            <% title_formatted = booking.artist.name.capitalize %>
+            <% start_time = DateTime.parse(booking.start_date.to_s) %>
+            <% end_time = DateTime.parse(booking.end_date.to_s) %>
+            <% booking_duration = end_time - start_time %>
+
+            <div class="meta">
+            <div class="content">
+              <div class="top">
+                <h5 class='artist'><em class='red-text'><strong><%= title_formatted %></em></strong></h5>
+              <% if booking.confirmed %>
+                <h6 class='title'><em>(booking ref: #<%= booking.id %>)</em></h6>
+              <% end %>
+              </div>
+                <div class="bottom">
+                  <p class='location extra'><strong>Location:  </strong><%= booking.location.capitalize %></p>
+                  <p class='type extra'><strong>Event type:  </strong><%= booking.event_type.capitalize %></p>
+                  <div class="duration-range">
+                    <p class='duration'><%= start_time.strftime('%d %m %Y').split.join('/') %> - <%= start_time.strftime('%H %M').split.join('h') %> <i class="fa-solid fa-arrow-right"></i></p>
+                    <p class='duration'><%= end_time.strftime('%d %m %Y').split.join('/') %> - <%= end_time.strftime('%H %M').split.join('h') %></p>
+                  </div>
+                  <div class="status">
+                    <% if booking.confirmed %>
+                      <p class="confirmation green-bubble">Confirmed <i class="fa-solid fa-check"></i></p>
+                      <% if booking.paid %>
+                        <p  class="paid green-bubble">Paid <i class="fa-solid fa-check"></i></p>
+                      <% else %>
+                        <p class="paid red-bubble">Awaiting Payment</p>
+                    <% end %>
                     <% else %>
-                      <p class="paid red-bubble">Awaiting Payment</p>
-                  <% end %>
-                  <% else %>
-                    <p class="confirmation red-bubble">Awaiting confirmation</i></p>
-                  <% end %>
-                </div>
-                <% if booking.confirmed %>
-                  <% unless booking.paid %>
-                    <%= form_with url: orders_path do %>
-                    <%= hidden_field_tag 'booking_id', booking.id %>
-                    <%= submit_tag 'Pay Now', class: 'btn btn-primary pay' %>
+                      <p class="confirmation red-bubble">Awaiting confirmation</i></p>
+                    <% end %>
+                  </div>
+                  <% if booking.confirmed %>
+                    <% unless booking.paid %>
+                      <%= form_with url: orders_path do %>
+                      <%= hidden_field_tag 'booking_id', booking.id %>
+                      <%= submit_tag 'Pay Now', class: 'btn btn-primary pay' %>
+                      <% end %>
                     <% end %>
                   <% end %>
+                </div>
+                <% if booking.confirmed && booking.paid %>
+                  <%= link_to 'Leave a review', new_artist_review_path(booking.artist_id)%>
                 <% end %>
               </div>
-              <% if booking.confirmed && booking.paid %>
-                <%= link_to 'Leave a review', new_artist_review_path(booking.artist_id)%>
-              <% end %>
             </div>
-          </div>
       </div>
   <% end %>
 </div>

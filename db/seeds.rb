@@ -34,7 +34,7 @@ CSV.foreach(filepath, headers: :first_row) do |row|
     name: row[8].gsub('“', '').gsub('”', ''),
     genre: row[9].gsub('“', '').gsub('”', ''),
     description: row[22].gsub('“', '').gsub('”', ''),
-    rate: row[18].gsub('“', '').gsub('”', ''),
+    rate: row[18].gsub('“', '').gsub('”', '').to_i,
     instrument: row[17].gsub('“', '').gsub('”', ''),
     soundcloud_url: row[11].gsub('“', '').gsub('”', ''),
     spotify_url: row[12].gsub('“', '').gsub('”', ''),

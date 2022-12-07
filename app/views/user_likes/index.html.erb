@@ -18,25 +18,28 @@
     </div>
 
 <h3>Your <em class='red-text'>saved</em> artists:</h2>
-
+  <% colors = ['#B9302A', '#0363B6', '#E8B503'] %>
+  <% color_step = 0; %>
   <% @likes.each do |like| %>
-    <div class="like-card-container">
+    <% card_color = colors[color_step] %>
+    <% color_step += 1 %>
+    <% color_step = 0 if color_step > 2 %>
+    <div class="like-card-container" style="box-shadow: 4px 4px <%= card_color %>">
+        <div class="like-card">
+          <img src='<%= cl_image_path like.artist.photos[0].key %>' />
 
-      <div class="like-card">
-        <img src='<%= cl_image_path like.artist.photos[0].key %>' />
+          <div class="like-artist">
+            <% artist = like.artist %>
+            <a href='artists/<%= like.artist.id %>'class='name'><%= artist.name %></a>
 
-        <div class="like-artist">
-          <% artist = like.artist %>
-          <a href='artists/<%= like.artist.id %>'class='name'><%= artist.name %></a>
+            <div class="details">
+              #<%= like.artist.genre%>, #<%= like.artist.instrument %>
 
-          <div class="details">
-            #<%= like.artist.genre%>, #<%= like.artist.instrument %>
+                  <%= link_to '<i class="fa-solid fa-xmark"></i>'.html_safe, user_like_path(like), class: 'btn btn-primary remove', data: {turbo_method: :delete} %>
 
-                 <%= link_to '<i class="fa-solid fa-xmark"></i>'.html_safe, user_like_path(like), class: 'btn btn-primary remove', data: {turbo_method: :delete} %>
-
+            </div>
           </div>
         </div>
-      </div>
 
     </div>
   <% end %>
