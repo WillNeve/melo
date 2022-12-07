@@ -17,8 +17,8 @@
     position: absolute;
     color: $gray;
     text-decoration: none;
-    bottom: 5px;
-    right: 10px;
+    bottom: 15px;
+    right: 20px;
     i {
       font-size: 190%;
       border: none;
@@ -59,6 +59,7 @@
     margin: 0px !important;
     top: 10px;
     font-size: 125%;
+    text-decoration: none;
   }
 
   .main-img{
@@ -79,7 +80,7 @@
     flex-direction: column;
     align-items: flex-end;
     // border: 2px solid red;
-    margin-top: 2px;
+    margin-top: 8px;
     width: fit-content;
     height: fit-content;
     top: 71%;
