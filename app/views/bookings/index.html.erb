@@ -17,36 +17,38 @@
             <% end %>
             </div>
               <div class="bottom">
-                  <p class='location extra'><strong>Location:  </strong><%= booking.location.capitalize %></p>
-                  <p class='type extra'><strong>Event type:  </strong><%= booking.event_type.capitalize %></p>
-                  <p class='duration'><%= start_time.strftime('%d %m %Y').split.join('/') %> - <%= start_time.strftime('%H %M').split.join('h') %></p>
+                <p class='location extra'><strong>Location:  </strong><%= booking.location.capitalize %></p>
+                <p class='type extra'><strong>Event type:  </strong><%= booking.event_type.capitalize %></p>
+                <div class="duration-range">
+                  <p class='duration'><%= start_time.strftime('%d %m %Y').split.join('/') %> - <%= start_time.strftime('%H %M').split.join('h') %> <i class="fa-solid fa-arrow-right"></i></p>
                   <p class='duration'><%= end_time.strftime('%d %m %Y').split.join('/') %> - <%= end_time.strftime('%H %M').split.join('h') %></p>
-                  <div class="status">
-                    <% if booking.confirmed %>
-                      <p class="confirmation green-bubble">Confirmed <i class="fa-solid fa-check"></i></p>
-                      <% if booking.paid %>
-                        <p  class="paid green-bubble">Paid <i class="fa-solid fa-check"></i></p>
-                      <% else %>
-                        <p class="paid red-bubble">Awaiting Payment</p>
-                    <% end %>
-                    <% else %>
-                      <p class="confirmation red-bubble">Awaiting confirmation</i></p>
-                    <% end %>
-                  </div>
+                </div>
+                <div class="status">
                   <% if booking.confirmed %>
-                    <% unless booking.paid %>
-                      <%= form_with url: orders_path do %>
-                      <%= hidden_field_tag 'booking_id', booking.id %>
-                      <%= submit_tag 'Pay Now', class: 'btn btn-primary pay' %>
-                      <% end %>
-                    <% end %>
+                    <p class="confirmation green-bubble">Confirmed <i class="fa-solid fa-check"></i></p>
+                    <% if booking.paid %>
+                      <p  class="paid green-bubble">Paid <i class="fa-solid fa-check"></i></p>
+                    <% else %>
+                      <p class="paid red-bubble">Awaiting Payment</p>
+                  <% end %>
+                  <% else %>
+                    <p class="confirmation red-bubble">Awaiting confirmation</i></p>
                   <% end %>
                 </div>
-                <% if booking.confirmed && booking.paid %>
-                  <%= link_to 'Leave a review', new_artist_review_path(booking.artist_id)%>
+                <% if booking.confirmed %>
+                  <% unless booking.paid %>
+                    <%= form_with url: orders_path do %>
+                    <%= hidden_field_tag 'booking_id', booking.id %>
+                    <%= submit_tag 'Pay Now', class: 'btn btn-primary pay' %>
+                    <% end %>
+                  <% end %>
                 <% end %>
               </div>
+              <% if booking.confirmed && booking.paid %>
+                <%= link_to 'Leave a review', new_artist_review_path(booking.artist_id)%>
+              <% end %>
             </div>
-        </div>
-    <% end %>
-    </div>
+          </div>
+      </div>
+  <% end %>
+</div>

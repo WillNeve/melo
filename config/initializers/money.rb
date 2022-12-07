@@ -1,17 +1,17 @@
 # encoding : utf-8
 Money.locale_backend = :currency
+Money.rounding_mode = 'ROUND_HALF_EVEN'
 
 MoneyRails.configure do |config|
   # To set the default currency
   #
   config.default_currency = :gbp
-
   # Set default bank object
   #
   # Example:
   # config.default_bank = EuCentralBank.new
 
-  # Add exchange rates to current money bank object.
+  # Add exchange rates to current money bank obj ect.
   # (The conversion rate refers to one direction only)
   #
   # Example:
