@@ -1,4 +1,8 @@
-<div class="container">
+<div class="container review-page">
+    <div class="top">
+      <%= link_to '<i class="fa-solid fa-arrow-left back-button"></i>'.html_safe, artist_path(@artist) %>
+      <h1><strong class='red-text'><%=@artist.name  %></strong></h1>
+    </div>
   <div class="heading">
     <h2><% if @artist.reviews.empty? %>
             <% artist_ratings = "New" %>
@@ -10,7 +14,7 @@
             <% artist_ratings = (artist_ratings.to_f / @artist.reviews.length).round(1)%>
         <% end %>
       <span >★ <%= artist_ratings%>  </span></h2>
-    <h1><strong><%=@artist.name  %></strong></h1>
+      <h3><%= @artist.reviews.length %> reviews</h3>
   </div>
   <% @reviews.each do |review| %>
       <br>
