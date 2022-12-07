@@ -1,9 +1,6 @@
 #melo-nav {
   position: fixed;
   z-index: 10;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
   background-color: $tan;
   top: 0;
   left: 0;
@@ -56,4 +53,14 @@
       margin-bottom: -1rem;
       }
   }
+
+  .show-search-bar{
+    height: 30px;
+    width: 100%;
+    transition:ease;
+    position: relative;
+    top: -7px;
+
+  }
+
 }
