@@ -11,7 +11,7 @@
     <% @booking.artist = Artist.find(params[:artist_id]) %>
     <h2 class='mb-4'>Ready to book <em class='red-text'><%= @booking.artist.name %></em> ?</h2>
   </div>
-  <%= simple_form_for [@artist, @booking], class: 'booking-form' do |f| %>
+  <%= simple_form_for [@artist, @booking], html: { class: 'booking-form', id: 'booking-form'} do |f| %>
     <%= f.input :start_date, as: :datetime, html5: true %>
     <div class='form-seperator'></div>
     <%= f.input :end_date, as: :datetime, html5: true %>

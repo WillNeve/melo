@@ -17,6 +17,8 @@
   //   background: rgba($gray, 0.7);
   //   transform: translateX(-50%);
   // }
+
+
   .bar  {
     display: flex;
     width: 100%;
@@ -26,32 +28,17 @@
     justify-content: space-between;
     align-items: center;
 
-    #search-bar {
-      // position: absolute;
-      bottom: 0%;
-      border: none;
-      background-color: $tan;
-
-      #search-btn {
-        bottom: 0%;
-        // position: absolute;
-        background-color: $tan;
-        border: none;
-        color: $black
-      }
+    #melo-logo-text{
+      font-size: 3.3rem;
+      text-decoration: none;
+      margin-bottom: -0.5rem;
     }
 
-      #melo-logo-text{
-        font-size: 3.3rem;
-        text-decoration: none;
-        margin-bottom: -0.5rem;
-      }
-
-      .nav_button{
-      color: $gray;
-      font-size: 2rem;
-      margin-bottom: -1rem;
-      }
+    .nav_button{
+    color: $gray;
+    font-size: 2rem;
+    margin-bottom: -1rem;
+    }
   }
 
   .show-search-bar{
@@ -60,7 +47,45 @@
     transition:ease;
     position: relative;
     top: -7px;
+    background-color: $tan;
+  }
 
+  #search-input{
+    background-color: $tan;
+    color: $gray;
+    border:none;
+    border-bottom: 1px solid $gray;
+    font-size: 18px;
+    &:focus {
+      box-shadow: none;
+      border: none;
+      outline: none;
+    }
+  }
+
+
+  #search-btn{
+    color: $gray;
+    background-color: $tan;
+    width: 50%;
+    border: none;
+    border-radius: none;
+    border-bottom: 1px solid $gray;
+  }
+
+  .nav-bar-left-side{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #btn-search{
+    font-size: 180%;
+    top: 3px;
+    padding: 0px 0px;
+    margin-top: 20px;
+    margin-right: 28px;
+    opacity: 0.6,
   }
 
 }
