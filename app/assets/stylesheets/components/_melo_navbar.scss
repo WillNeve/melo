@@ -22,8 +22,24 @@
     width: 100%;
     padding: 0px 15px;
     flex-direction: row;
+    position: relative;
     justify-content: space-between;
     align-items: center;
+
+    #search-bar {
+      // position: absolute;
+      bottom: 0%;
+      border: none;
+      background-color: $tan;
+
+      #search-btn {
+        bottom: 0%;
+        // position: absolute;
+        background-color: $tan;
+        border: none;
+        color: $black
+      }
+    }
 
       #melo-logo-text{
         font-size: 3.3rem;

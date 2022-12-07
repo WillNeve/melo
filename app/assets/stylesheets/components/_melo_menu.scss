@@ -2,9 +2,8 @@
   position: fixed;
   z-index: 998;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  // text-align: center;
+  flex-direction: column;
   z-index: 4;
   bottom: 0;
   left: 0;
@@ -88,6 +87,7 @@
       .menu_right {
         color: $pink !important;
         text-align: end;
+        vertical-align:middle;
         right: 20px;
       }
   }
@@ -103,6 +103,7 @@
         color: $black !important;
         text-align: start;
         left: 20px;
+        vertical-align:middle;
       }
    }
 
@@ -117,6 +118,7 @@
       color: $pink !important;
       text-align: end;
       right: 20px;
+      vertical-align:middle;
     }
    }
 
@@ -131,6 +133,7 @@
       color: $pink !important;
       text-align: start;
       left: 20px;
+      vertical-align:middle;
     }
   }
 
@@ -145,6 +148,7 @@
       color: $black !important;
       text-align: end;
       right: 20px;
+      vertical-align:middle !important;
     }
   }
 
@@ -160,6 +164,7 @@
       color: $pink !important;
       text-align: start;
       left: 20px;
+      vertical-align:middle;
     }
   }
 
@@ -169,7 +174,7 @@
     // border: 2px solid greenyellow;
     width: 100%;
     align-items: center;
-    // justify-content: center;
+    // justify-content: center !important;
     opacity: 0;
     transform: translateY(-4.5rem);
     transition: all .5s ease-in-out;
@@ -195,6 +200,7 @@
       a {
         // border: 2px solid green;
         // position: relative;
+        justify-content: center;
         font-family: $body-font;
         width: 100%;
         font-size: 1.5rem;
@@ -225,6 +231,7 @@
   row-gap: 5px;
   transition: all .3s ease;
   cursor: pointer;
+
   div {
     width: 25px;
     height: 5px;
