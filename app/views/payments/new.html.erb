@@ -1,8 +1,16 @@
 <div class="container">
   <div class="row py-4">
     <div class="col">
+      <% booking = Booking.find(params[:booking_id]) %>
+      <% booking_start = DateTime.parse(booking.start_date.to_s) %>
+      <% booking_end = DateTime.parse(booking.end_date.to_s) %>
+      <% range = (booking_end - booking_start).to_f %>
+      <% range_hours = range * 24 %>
       <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.booking.artist.name %></strong> for <strong><%= humanized_money_with_symbol @order.price_cents %></strong></p>
+      <h2 class='red-text'>One step away from completing your booking!</h2>
+      <p>Payment for booking ref(<%= @order.booking.id %>)</p>
+      <p><strong><%= @order.booking.artist.name %></strong> for <%= range_hours %> hours  @ <strong><%= @order.booking.artist.rate %></strong>/hour</p>
+      <p>Total:<strong><%= humanized_money_with_symbol @order.price_cents %></strong></p>
       <button id="pay" class="btn btn-primary">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
