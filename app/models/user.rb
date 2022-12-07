@@ -15,5 +15,6 @@ class User < ApplicationRecord
   has_many :message_rooms, through: :users_rooms
   has_many :messages
   has_many :user_likes
+  has_many :orders
   has_one_attached :avatar
 end
