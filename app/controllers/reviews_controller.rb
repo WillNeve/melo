@@ -3,7 +3,7 @@ require 'date'
 class ReviewsController < ApplicationController
   def index
     @artist = Artist.find(params[:artist_id])
-    @reviews = @artist.reviews
+    @reviews = @artist.reviews.order(created_at: :desc)
   end
 
   def new
