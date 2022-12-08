@@ -52,6 +52,12 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def confirm
+    @booking = Booking.find(params[:id])
+    @booking.update(confirmed: true)
+    redirect_to dashboard_path
+  end
+
   private
 
   def booking_params

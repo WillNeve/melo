@@ -1,21 +1,32 @@
-.dashboard-title{
+.artist-booking-card {
   display: flex;
-  border-bottom: 2px solid $gray;
-  box-shadow: 50%;
-  text-align: end;
-  height: 90%;
-  width: 100%;
-  h2{
-    font-size: 280%;
-    text-align: end;
+  flex-direction: column;
+  padding: 10px;
+  background: $tan;
+  border: 2px solid $gray;
+  .fa-check {
+    font-size: 2rem;
   }
-
-}
-
-.dashboard-card{
-  height: 200px;
-  width:100%;
-  border: 2px solid;
-  margin-top: 5px;
-  text-align: row;
+  p {
+    color: $green;
+    font-size: 1.2rem;
+  }
+  .confirm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+    border: 2px solid $green;
+    .center {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      column-gap: 10px;
+    }
+    i {
+      color: $green;
+      font-size: 1.5rem;
+    }
+  }
 }
