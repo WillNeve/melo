@@ -8,5 +8,6 @@ class Artist < ApplicationRecord
   has_one_attached :banner
   has_many_attached :photos
   monetize :rate_cents
+  has_many :bookings
   has_many :orders
 end

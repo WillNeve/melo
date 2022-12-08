@@ -1,24 +1,20 @@
 <div class="container">
-  <div class= "dashboard-title">
-    <h2>Dashboard</h2>
+  <h2>Dashboard:</h2>
+    <% if current_user.artist %>
+      <h3>Welcome <%= current_user.artist.name %></h3>
+    <div class="dashboard-card">
+      <% current_user.artist.bookings.each do |booking| %>
+        <div class="artist-booking-card">
+          <h4>Booking request from: <em class='red-text'><%= booking.user.first_name %> <%= booking.user.last_name %></em></h4>
+        <% if booking.confirmed == false %>
+          <div class="confirm">
+            <i class="fa-solid fa-arrow-down"></i>
+            <i class="fa-solid fa-arrow-right"></i> <%= link_to 'Victoria click on this!', confirm_booking_path(booking), class: 'btn btn-success' %><i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-solid fa-arrow-up"></i>
+          </div>
+        <% end %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
-  <div class="dashboard-card">
-
-  <%# create a container with avatar pic and name on same row %>
-  <%# avatar %>
-  <%# full name of the guy %>
-  <div class="dashboard-contact">
-    <h5>avatar picture</h5>
-    <h5>tom tushambon</h5>
-  </div>
-
-
-  <%# diplay the last message of the chat room  %>
-
-  <div class="chat_container">
-      <div class="chat_card">
-        <%# stuff  %>
-      </div>
-  </div>
-  <%# 3 icon, accepted, text (open the dm), delete %>
 </div>
