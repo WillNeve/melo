@@ -7,10 +7,11 @@
       <a href="">
     <% end %>
         <div class="recipient-info">
-        <img src="<%= cl_image_path @other_user.avatar.key %>" alt="" class="avatar">
         <% if @other_user.artist %>
+            <img src="<%= cl_image_path @other_user.artist.photos[0].key%>" alt="<%=@other_user.artist.name%> picture" class='avatar'>
             <h2><em class='red-text'><%= @other_user.artist.name %></em></h2>
         <% else %>
+            <img src="<%= cl_image_path @other_user.avatar.key %>" alt="<%=@other_user.first_name%> portrait" class='avatar'>
             <h2><em class='blue-text'><%= @other_user.first_name %> <%= @other_user.last_name %></em></h2>
         <% end %>
         </div>

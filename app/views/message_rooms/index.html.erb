@@ -1,43 +1,36 @@
 
 <div class="container">
 
-      <div class= background-lines>
-        <div class='vl-center'></div>
-        <div class='vl-r1'></div>
-        <div class='vl-r2'></div>
-        <div class='vl-r3'></div>
-        <div class='vl-r4'></div>
-        <div class='vl-r5'></div>
-        <div class='vl-r6'></div>
-        <div class='vl-l1'></div>
-        <div class='vl-l2'></div>
-        <div class='vl-l3'></div>
-        <div class='vl-l4'></div>
-        <div class='vl-l5'></div>
-        <div class='vl-l6'></div>
-      </div>
+  <div class= background-lines>
+    <div class='vl-center'></div>
+    <div class='vl-r1'></div>
+    <div class='vl-r2'></div>
+    <div class='vl-r3'></div>
+    <div class='vl-r4'></div>
+    <div class='vl-r5'></div>
+    <div class='vl-r6'></div>
+    <div class='vl-l1'></div>
+    <div class='vl-l2'></div>
+    <div class='vl-l3'></div>
+    <div class='vl-l4'></div>
+    <div class='vl-l5'></div>
+    <div class='vl-l6'></div>
+  </div>
 
   <h2>Chats:</h2>
   <div class="rooms-container">
-      <% colors = ['#B9302A', '#0363B6', '#E8B503'] %>
-      <% color_step = 0; %>
-      <% @rooms.each do |room| %>
-        <% card_color = colors[color_step] %>
-        <% color_step += 1 %>
-        <% color_step = 0 if color_step > 2 %>
+    <% colors = ['#B9302A', '#0363B6', '#E8B503'] %>
+    <% color_step = 0; %>
+    <% @rooms.each do |room| %>
+      <% card_color = colors[color_step] %>
+      <% color_step += 1 %>
+      <% color_step = 0 if color_step > 2 %>
 
+      <% room.users.each do |user| %>
+        <% @other_user = user if user != current_user %>
+      <% end %>
 
-
-
-
-
-
-        <% room.users.each do |user| %>
-          <% @other_user = user if user != current_user %>
-        <% end %>
-
-
-        <% if room.messages.last %>
+      <% if room.messages.last %>
         <% message_timestamp = room.messages.last.created_at.to_s %>
         <% timestamp_split = message_timestamp.split(' ') %>
         <% date_split = timestamp_split[0].split('-') %>
@@ -59,31 +52,32 @@
           <% end %>
         <% end %>
 
-          <% if room.messages.last.content.length > 26 %>
-            <% message = room.messages.last.content.first(26) + '...' %>
-          <% else %>
-            <% message = room.messages.last.content %>
-          <% end %>
-          <a href='/message_rooms/<%= room.id %>' class="room-card" style='border: 2px solid <%= card_color %>'>
-
-              <img src="<%= cl_image_path @other_user.avatar.key %>" alt="<%=@other_user.first_name%> portrait" class='avatar'>
-            <div class="content">
-              <div class="left">
-              <% if @other_user.artist %>
-                <h3 class='chat-name' style='color: <%= card_color %>'><%= @other_user.artist.name%></h3>
-              <% else %>
-                <h3 class='chat-name' style='color: <%= card_color %>'><%= @other_user.first_name %> <%= @other_user.last_name %></h3>
-              <% end %>
-                <p class="last-message"><%= message %></p>
-              </div>
-              <div class="right">
-                <p class="time-stamp"><%= message_elapsed %></p>
-              </div>
-            </div>
-          </a>
-
+        <% if room.messages.last.content.length > 26 %>
+          <% message = room.messages.last.content.first(26) + '...' %>
+        <% else %>
+          <% message = room.messages.last.content %>
         <% end %>
-
+        <a href='/message_rooms/<%= room.id %>' class="room-card" style='border: 2px solid <%= card_color %>'>
+          <% if @other_user.artist %>
+            <img src="<%= cl_image_path @other_user.artist.photos[0].key%>" alt="<%=@other_user.artist.name%> picture" class='avatar'>
+          <% else %>
+            <img src="<%= cl_image_path @other_user.avatar.key %>" alt="<%=@other_user.first_name%> portrait" class='avatar'>
+          <% end %>
+          <div class="content">
+            <div class="left">
+            <% if @other_user.artist %>
+              <h3 class='chat-name' style='color: <%= card_color %>'><%= @other_user.artist.name%></h3>
+            <% else %>
+              <h3 class='chat-name' style='color: <%= card_color %>'><%= @other_user.first_name %> <%= @other_user.last_name %></h3>
+            <% end %>
+              <p class="last-message"><%= message %></p>
+            </div>
+            <div class="right">
+              <p class="time-stamp"><%= message_elapsed %></p>
+            </div>
+          </div>
+        </a>
       <% end %>
+    <% end %>
   </div>
 </div>
