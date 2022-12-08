@@ -139,3 +139,21 @@ user = User.new(robbass)
 user.avatar.attach(io: avatar, filename: "user_avatar_rob.png", content_type: "image/jpg")
 user.save
 # ---------------------------------------------------------------
+
+# Demo Day Config
+# create 2 paid bookings for bob and one unpaid
+# a few chats with the above 3
+# bob is user id 18
+
+bob = User.find(20)
+booking1 = Booking.create(user: bob, artist: Artist.find(10), start_date: 'Sat, 03 Dec 2022 20:00:00.000000000 UTC +00:00', end_date: 'Sat, 03 Dec 2022 22:00:00.000000000 UTC +00:00', location: 'London', event_type: 'Private')
+booking2 = Booking.create(user: bob, artist: Artist.find(7), start_date: 'Mon, 05 Dec 2022 17:30:00.000000000 UTC +00:00', end_date: 'Mon, 05 Dec 2022 18:30:00.000000000 UTC +00:00', location: 'Shoreditch', event_type: 'Venue')
+booking3 = Booking.create(user: bob, artist: Artist.find(1), start_date: 'Thu, 08 Dec 2022 20:00:00.000000000 UTC +00:00', end_date: 'Thu, 08 Dec 2022 23:00:00.000000000 UTC +00:00', location: 'Hoxton', event_type: 'Birthday')
+booking1.confirmed = true
+booking2.confirmed = true
+booking1.paid = true
+booking2.paid = true
+booking3.confirmed = true
+booking1.save
+booking2.save
+booking3.save

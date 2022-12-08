@@ -26,6 +26,18 @@
         <% color_step += 1 %>
         <% color_step = 0 if color_step > 2 %>
 
+
+
+
+
+
+
+        <% room.users.each do |user| %>
+          <% @other_user = user if user != current_user %>
+        <% end %>
+
+
+        <% if room.messages.last %>
         <% message_timestamp = room.messages.last.created_at.to_s %>
         <% timestamp_split = message_timestamp.split(' ') %>
         <% date_split = timestamp_split[0].split('-') %>
@@ -46,18 +58,6 @@
             <% message_elapsed = "#{minutes_ago} minutes ago" %>
           <% end %>
         <% end %>
-
-
-
-
-
-
-        <% room.users.each do |user| %>
-          <% @other_user = user if user != current_user %>
-        <% end %>
-
-
-        <% if room.messages.last %>
 
           <% if room.messages.last.content.length > 26 %>
             <% message = room.messages.last.content.first(26) + '...' %>
