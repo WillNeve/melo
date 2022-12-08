@@ -25,6 +25,33 @@
         <% card_color = colors[color_step] %>
         <% color_step += 1 %>
         <% color_step = 0 if color_step > 2 %>
+
+        <% message_timestamp = room.messages.last.created_at.to_s %>
+        <% timestamp_split = message_timestamp.split(' ') %>
+        <% date_split = timestamp_split[0].split('-') %>
+        <% time_split = timestamp_split[1].split(':') %>
+        <% time = Time.new(date_split[0], date_split[1], date_split[2], time_split[0], time_split[1], time_split[2]) %>
+        <% minutes_ago = ((Time.now - time) / 60).round() %>
+        <% hours_ago = (minutes_ago / 60).round() %>
+        <% days_ago = (hours_ago / 24).round() %>
+        <% case minutes_ago %>
+        <% when 60..1439 %>
+          <% message_elapsed = "#{hours_ago} hours ago" %>
+        <% when 1440..(1.0/0.0) %>
+          <% message_elapsed = "#{days_ago} days ago" %>
+        <% else %>
+          <% if minutes_ago == 0 %>
+            <% message_elapsed = "Just now" %>
+          <% else %>
+            <% message_elapsed = "#{minutes_ago} minutes ago" %>
+          <% end %>
+        <% end %>
+
+
+
+
+
+
         <% room.users.each do |user| %>
           <% @other_user = user if user != current_user %>
         <% end %>
@@ -37,17 +64,20 @@
           <% else %>
             <% message = room.messages.last.content %>
           <% end %>
-          <% time_stamp = room.messages.last.created_at %>
           <a href='/message_rooms/<%= room.id %>' class="room-card" style='border: 2px solid <%= card_color %>'>
 
               <img src="<%= cl_image_path @other_user.avatar.key %>" alt="<%=@other_user.first_name%> portrait" class='avatar'>
             <div class="content">
               <div class="left">
+              <% if @other_user.artist %>
+                <h3 class='chat-name' style='color: <%= card_color %>'><%= @other_user.artist.name%></h3>
+              <% else %>
                 <h3 class='chat-name' style='color: <%= card_color %>'><%= @other_user.first_name %> <%= @other_user.last_name %></h3>
+              <% end %>
                 <p class="last-message"><%= message %></p>
               </div>
               <div class="right">
-                <p class="time-stamp"><%= time_stamp %></p>
+                <p class="time-stamp"><%= message_elapsed %></p>
               </div>
             </div>
           </a>
