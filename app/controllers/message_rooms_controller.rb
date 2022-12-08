@@ -35,7 +35,7 @@ class MessageRoomsController < ApplicationController
 
   def index
     # find all a users_rooms
-    @rooms = current_user.message_rooms
+    @rooms = current_user.message_rooms.order(created_at: :desc)
   end
 
   def denied
