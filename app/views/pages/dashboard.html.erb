@@ -1,26 +1,16 @@
 <div class="container">
-  <h2>Dashboard:</h2>
     <% if current_user.artist %>
       <h3>Welcome <%= current_user.artist.name %></h3>
+
     <div class="dashboard-card">
-      <% current_user.artist.bookings.each do |booking| %>
-        <div class="artist-booking-card">
-          <h4>Booking request from: <em class='red-text'><%= booking.user.first_name %> <%= booking.user.last_name %></em></h4>
-        <% if booking.confirmed == false %>
-          <h5>Confirm:</h5>
-          <div class="confirm">
-            <i class="fa-solid fa-arrow-down"></i>
-            <div class="center">
-              <i class="fa-solid fa-arrow-right"></i> <%= link_to 'Victoria click on this!', confirm_booking_path(booking), class: 'btn btn-success' %><i class="fa-solid fa-arrow-left"></i>
-            </div>
-            <i class="fa-solid fa-arrow-up"></i>
-          </div>
-        <% else %>
-          <i class="fa-solid fa-check"></i>
-          <p>You have confirmed this booking!</p>
-        <% end %>
-        </div>
-      <% end %>
-    <% end %>
+    <div class="calendar-blue">
+    </div>
+    <div class="something-yellow">
+    </div>
+    <div class="logout-black">
+    </div>
+    <div class="edit-profile-red">
+    </div>
   </div>
+  <% end %>
 </div>
