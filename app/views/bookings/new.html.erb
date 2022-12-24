@@ -9,16 +9,16 @@
 <div class="container" data-controller='booking-confirmation'>
   <div class="melo-slogan">
     <% @booking.artist = Artist.find(params[:artist_id]) %>
-    <h2 class='mb-4'>Ready to book <em class='red-text'><%= @booking.artist.name %></em> ?</h2>
+    <h2 class='mb-4'>Select a date to book <em class='red-text'><%= @booking.artist.name %></em></h2>
   </div>
   <%= simple_form_for [@artist, @booking], html: { class: 'booking-form', id: 'booking-form'} do |f| %>
     <%= f.input :start_date, as: :datetime, html5: true %>
     <div class='form-seperator'></div>
     <%= f.input :end_date, as: :datetime, html5: true %>
     <div class='form-seperator'></div>
-    <%= f.input :event_type, label: 'Event Type', collection: %w[VENUE Demo-Day WEDDING BIRTHDAY PRIVATE ] %>
+    <%= f.input :event_type, label: 'Event Type', collection: %w[ VENUE SPORTING-EVENT PUBLIC CORPORATE WEDDING BIRTHDAY PRIVATE ], default: %w[] %>
     <div class='form-seperator'></div>
-    <%= f.input :location %>
+    <%= f.input :location, label: 'Event Location', default: @current_user.location %>
     <div class='form-seperator'></div>
     <%= f.submit value: "Send request", data: { action: 'click->booking-confirmation#confirm' }, class: 'btn btn-primary' %>
   <% end %>
