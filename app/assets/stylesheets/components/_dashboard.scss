@@ -7,29 +7,20 @@
   padding: 10px;
   background: $tan;
   border: 2px solid $gray;
-  .fa-check {
-    font-size: 2rem;
+
+  .calendar-blue {
+    background-color: $blue;
   }
-  p {
-    color: $green;
-    font-size: 1.2rem;
+
+  .something-yellow {
+    background-color: $yellow;
   }
-  .confirm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    row-gap: 10px;
-    border: 2px solid $green;
-    .center {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      column-gap: 10px;
-    }
-    i {
-      color: $green;
-      font-size: 1.5rem;
-    }
+
+  .logout-black {
+    background-color: $black;
+  }
+
+  .edit-profile-red {
+    background-color: $red;
   }
 }
