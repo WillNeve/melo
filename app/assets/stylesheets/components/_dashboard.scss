@@ -10,17 +10,28 @@
 
   .calendar-blue {
     background-color: $blue;
+    position: absolute;
   }
 
   .something-yellow {
     background-color: $yellow;
+    position: absolute;
+
   }
 
   .logout-black {
     background-color: $black;
+    position: absolute;
+
   }
 
   .edit-profile-red {
     background-color: $red;
+    position: absolute;
+    width: 152px;
+    height: 266px;
+    left: 195px;
+    top: 471px;
+
   }
 }
