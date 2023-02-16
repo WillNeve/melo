@@ -52,12 +52,12 @@
                     autofocus: true,
                     input_html: {:id => "phone_number", autocomplete: "Mobile" }%>
         </div>
-        <div class="avatar-flex">
+        <%# <div class="avatar-flex">
           <%= f.input :avatar,
                       as: :file,
                       autofocus: true,
                       input_html: {:id => "avatar"}%>
-        </div>
+        <%# </div> %>
           <div class="password-flex">
         <%= f.input :password,
                     required: true,

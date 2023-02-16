@@ -25,7 +25,6 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
   # add destroy to messages
-
   resources :orders, only: %i[show create] do
     resources :payments, only: :new
   end
