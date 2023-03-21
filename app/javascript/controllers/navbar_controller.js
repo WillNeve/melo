@@ -16,6 +16,6 @@ export default class extends Controller {
   }
 
   toggleSearch() {
-    this.searchTarget.classList.toggle('d-none');
+    this.searchTarget.classList.toggle('show')
   }
 }

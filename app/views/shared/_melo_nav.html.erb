@@ -17,8 +17,9 @@
     </div>
 
   </div>
-  <div class="show-search-bar d-none" style="height:0px;" data-navbar-target="search">
-    <% if @index %>
+  <% if @index %>
+    <div class="search-cont" data-navbar-target="search">
+      <div class="search-bar">
         <%= form_with url: artists_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
           params[:query],
@@ -26,6 +27,7 @@
           placeholder: "Find an artist"%>
         <%= submit_tag "Search", class: "btn btn-danger", id: "search-btn"%>
         <% end %>
-      <% end %>
+      </div>
     </div>
+  <% end %>
 </div>
