@@ -1,0 +1,49 @@
+<div class="container calendar-container">
+  <h1>Calendar</h1>
+  <% if current_user.artist %>
+    <% confirmed_upcoming = [] %>
+    <% confirmed_past = [] %>
+    <% unconfirmed = [] %>
+    <% current_user.artist.bookings.each do |booking| %>
+      <% booking_start = time_from_timestamp(booking.start_date) %>
+      <% if (booking_start - Time.now) > 0 && booking.confirmed %>
+        <% confirmed_upcoming << booking %>
+      <% elsif (booking_start - Time.now) <= 0 && booking.confirmed  %>
+        <% confirmed_past << booking %>
+      <% else %>
+        <% unconfirmed << booking %>
+      <% end %>
+    <% end %>
+    <div class="calendar-bookings">
+      <div class="meta">
+        <div class="meta-section upcoming">
+        <h3>Upcoming Events:</h3>
+        <ul>
+        <% confirmed_upcoming.each do |booking| %>
+          <li><%= booking.event_type %></li>
+        <% end %>
+        </ul>
+        </div>
+        <div class="meta-section unconfirmed"></div>
+          <h3>Past Events:</h3>
+        <ul>
+        <% confirmed_past.each do |booking| %>
+          <li><%= booking.event_type %></li>
+        <% end %>
+        </ul>
+        <div class="meta-section past"></div>
+          <h3>Unconfirmed:</h3>
+        <ul>
+        <% unconfirmed.each do |booking| %>
+          <li>
+            <div class='unconfirmed-booking'>
+              <h5><%= booking.event_type %></h5>
+              <%= link_to 'Confirm', confirm_booking_path(booking), class: 'btn btn-success' %>
+            </div>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+</div>
