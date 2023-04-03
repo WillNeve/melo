@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
 
   def show
     @user = current_user
-    @booking = Booking.find(params[:booking_id])
+    @booking = Booking.find(params[:id])
   end
 
   def create
@@ -55,7 +55,7 @@ class BookingsController < ApplicationController
   def confirm
     @booking = Booking.find(params[:id])
     @booking.update(confirmed: true)
-    redirect_to dashboard_path
+    redirect_to calendar_path
   end
 
   private
