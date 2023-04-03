@@ -2,8 +2,7 @@ class MessageRoomsController < ApplicationController
   def create
     # steps:
     # take current user and target user
-    target_user_id = Artist.find(params[:id]).user.id
-    target_user = User.find(target_user_id)
+    target_user = User.find(params[:id])
     # check if room already exists with these 2 users, if so redirect to it
     if check_for_room(target_user)
       redirect_to message_room_path(check_for_room(target_user))

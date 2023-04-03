@@ -16,32 +16,25 @@
     <% end %>
     <div class="calendar-bookings">
       <div class="meta">
-        <div class="meta-section upcoming">
         <h3>Upcoming Events:</h3>
-        <ul>
-        <% confirmed_upcoming.each do |booking| %>
-          <li><%= booking.event_type %></li>
-        <% end %>
+        <ul class="meta-section upcoming">
+          <% confirmed_upcoming.each do |booking| %>
+            <li><strong><%= booking.event_type.downcase.capitalize %> Event</strong> -- <%= booking.user.first_name %> <%= booking.user.last_name %> <i class="fa-regular fa-eye"></i> <i class="fa-solid fa-message"></i></li>
+          <% end %>
         </ul>
-        </div>
-        <div class="meta-section unconfirmed"></div>
-          <h3>Past Events:</h3>
-        <ul>
-        <% confirmed_past.each do |booking| %>
-          <li><%= booking.event_type %></li>
-        <% end %>
+
+        <h3>Past Events:</h3>
+        <ul class="meta-section past">
+          <% confirmed_past.each do |booking| %>
+            <li><strong><%= booking.event_type.downcase.capitalize %> Event</strong> -- <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to '<i class="fa-regular fa-eye"></i>'.html_safe, booking_path(booking.id)  %> <%= link_to '<i class="fa-solid fa-message"></i>'.html_safe, new_chat_path(booking.user) %></li>
+          <% end %>
         </ul>
-        <div class="meta-section past"></div>
-          <h3>Unconfirmed:</h3>
-        <ul>
-        <% unconfirmed.each do |booking| %>
-          <li>
-            <div class='unconfirmed-booking'>
-              <h5><%= booking.event_type %></h5>
-              <%= link_to 'Confirm', confirm_booking_path(booking), class: 'btn btn-success' %>
-            </div>
-          </li>
-        <% end %>
+
+        <h3>Unconfirmed:</h3>
+        <ul class="meta-section unconfirmed">
+          <% unconfirmed.each do |booking| %>
+            <li><strong><%= booking.event_type.downcase.capitalize %> Event</strong> -- <%= booking.user.first_name %> <%= booking.user.last_name %> <%= link_to '<i class="fa-regular fa-eye"></i>'.html_safe, booking_path(booking.id)  %> <%= link_to '<i class="fa-solid fa-message"></i>'.html_safe, new_chat_path(booking.user) %><%= link_to '<i class="fa-regular fa-circle-check green-text"></i>'.html_safe, confirm_booking_path(booking)%><i class="fa-regular fa-circle-xmark red-text"></i></li>
+          <% end %>
         </ul>
       </div>
     </div>
