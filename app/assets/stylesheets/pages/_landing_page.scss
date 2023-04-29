@@ -295,7 +295,7 @@
     grid-row-start: 7;
     grid-row-end: 8;
   }
-  .login, .signup {
+  .login, .signup, .recruiter-btn {
     background: $black;
     color: white;
     font-weight: 600;
@@ -321,6 +321,17 @@
     grid-column-end: 5;
     grid-row-start: 5;
     grid-row-end: 6;
+    transition: all .3s ease;
+    &.about {
+      transform: translateX(300px);
+      opacity: 0;
+    }
+  }
+  .recruiter-btn {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
     transition: all .3s ease;
     &.about {
       transform: translateX(300px);

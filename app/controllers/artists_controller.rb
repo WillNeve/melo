@@ -8,7 +8,7 @@ class ArtistsController < ApplicationController
         OR artists.instrument @@ :query
         OR artists.tag @@ :query
       SQL
-      @artists = Artist.where(sql_query,query: "%#{params[:query]}%")
+      @artists = Artist.where(sql_query, query: "%#{params[:query]}%")
     else
       @artists = Artist.all
     end
