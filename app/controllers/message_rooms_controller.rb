@@ -18,7 +18,7 @@ class MessageRoomsController < ApplicationController
   end
 
   def show
-    @no_menu = true;
+    @no_menu = true
     @room = MessageRoom.find(params[:id])
     if current_user.message_rooms.include?(@room)
       @messages = @room.messages
