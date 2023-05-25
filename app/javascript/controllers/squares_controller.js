@@ -2,46 +2,34 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="squares"
 export default class extends Controller {
-  static targets = ['squaresCont', 'login', 'signup', 'about', 'topLeft', 'topRight', 'blackBox', 'miniBlackBox', 'square']
+  static targets = ['squaresCont', 'login', 'signup', 'about', 'topLeft', 'topRight', 'blackBox', 'miniBlackBox', 'square', 'squares']
   connect() {
     console.log('tiles connected')
-  }
-
-
-  constructor() {
-    super();
     this.isToggleOn = false;
     this.originalColors = new WeakMap();
     this.toggleColors = ['rgb(184, 48, 42)', 'rgb(54, 118, 231)', 'rgb(232, 181, 3)'];
   }
 
+
   changeColor(event) {
+    event.preventDefault();
+
     const square = event.target;
-    // const toggleColor = this.toggleColors[Math.floor(Math.random() * this.toggleColors.length)];
-    let toggleColor, originalColor = this.originalColors.get(square);
+    const originalColor = square.style.background;
 
-    if (!originalColor) {
-      originalColor = window.getComputedStyle(square).backgroundColor;
-      this.originalColors.set(square, originalColor);
-    }
-
+    let newColor;
     do {
-      toggleColor = this.toggleColors[Math.floor(Math.random() * this.toggleColors.length)];
-    } while (toggleColor === originalColor);
+      this.next_colors = this.toggleColors.filter(color => color !== originalColor);
+      newColor = this.next_colors[Math.floor(Math.random() * this.next_colors.length)];
+    } while (newColor === square.style.background);
 
-    if (this.isToggleOn) {
-      square.style.backgroundColor = originalColor;
-      this.isToggleOn = false;
-    } else {
-      square.style.backgroundColor = toggleColor;
-      this.isToggleOn = true;
-    }
-    console.log(this.isToggleOn.toString())
+    square.style.background = newColor;
+    console.log(newColor);
+    console.log(this.next_colors)
   }
 
-
-
   aboutMode(event) {
+
     event.preventDefault()
 
     if (this.squaresContTarget.classList.contains('about')) {
@@ -76,5 +64,6 @@ export default class extends Controller {
         this.miniBlackBoxTarget.classList.toggle('active');
       }, 750);
     }
+    console.log(this.scope)
   }
 }
