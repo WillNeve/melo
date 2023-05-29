@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :find_booking, only: %i[show edit update destroy confirmation confirm]
   def index
     @bookings = current_user.bookings.order(created_at: :desc)
     # Scope your query to the dates being shown:
@@ -14,7 +15,6 @@ class BookingsController < ApplicationController
 
   def show
     @user = current_user
-    @booking = Booking.find(params[:id])
   end
 
   def create
@@ -30,11 +30,9 @@ class BookingsController < ApplicationController
 
   def edit
     # @user = current_user
-    @booking = Booking.find(params[:id])
   end
 
   def update
-    @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
       redirect_to booking_path(@booking, @booking_message)
     else
@@ -43,22 +41,23 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_path, status: :see_other
   end
 
   def confirmation
-    @booking = Booking.find(params[:id])
   end
 
   def confirm
-    @booking = Booking.find(params[:id])
     @booking.update(confirmed: true)
     redirect_to calendar_path
   end
 
   private
+
+  def find_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :location, :event_type)
